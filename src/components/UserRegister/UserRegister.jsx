@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, InputGroup, FormControl } from 'react-bootstrap'
 import { MDBBtn } from 'mdb-react-ui-kit';
 
 
@@ -49,27 +49,7 @@ function UserRegister(props) {
         <React.Fragment>
             <Form className="my-auto" onSubmit={registerUser}>
                 <Row className="mb-3">
-                    <Form.Group controlId="registerFormUsername">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control 
-                            name="username" 
-                            value={registerValues.username}
-                            onChange={handleChange}
-                            type="text" 
-                            placeholder="Enter username"
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="registerFormPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            name="password"
-                            value={registerValues.password}
-                            onChange={handleChange}
-                            type="password" 
-                            placeholder="Enter password" 
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="registerFormFirstName">
+                    <Form.Group as={Col} controlId="registerFormFirstName">
                         <Form.Label>First name</Form.Label>
                         <Form.Control 
                             name="first_name" 
@@ -79,18 +59,19 @@ function UserRegister(props) {
                             placeholder="Enter first name"
                         />
                     </Form.Group>
+                    <Form.Group as={Col} controlId="registerFormLastName">
+                        <Form.Label>Last name</Form.Label>
+                        <Form.Control 
+                            name="last_name" 
+                            value={registerValues.last_name}
+                            onChange={handleChange}
+                            type="text" 
+                            placeholder="Enter last name"
+                        />
+                    </Form.Group>
                 </Row>
-                <Form.Group controlId="registerFormLastName">
-                    <Form.Label>Last name</Form.Label>
-                    <Form.Control 
-                        name="last_name" 
-                        value={registerValues.last_name}
-                        onChange={handleChange}
-                        type="text" 
-                        placeholder="Enter last name"
-                    />
-                </Form.Group>
-                <Form.Group controlId="registerFormEmail">
+                <Row className="mb-3">
+                <Form.Group as={Col} controlId="registerFormEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control 
                         name="email" 
@@ -100,6 +81,29 @@ function UserRegister(props) {
                         placeholder="Enter email"
                     />
                 </Form.Group>
+                </Row>
+                <Row className="mb-3">
+                    <Form.Group as={Col} controlId="registerFormUsername">
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control 
+                            name="username" 
+                            value={registerValues.username}
+                            onChange={handleChange}
+                            type="text" 
+                            placeholder="Enter username"
+                        />
+                    </Form.Group>
+                    <Form.Group as={Col} controlId="registerFormPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
+                            name="password"
+                            value={registerValues.password}
+                            onChange={handleChange}
+                            type="password" 
+                            placeholder="Enter password" 
+                        />
+                    </Form.Group>
+                </Row>
                 <Form.Group>
                     <br />
                     <Form.Text>
