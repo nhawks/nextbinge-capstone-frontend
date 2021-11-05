@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
+import { registerUser as register } from '../../api/User/User'
 import { Row, Col } from 'react-bootstrap'
 import { MDBBtn } from 'mdb-react-ui-kit';
 
 
-function UserRegister(props) {
+function UserRegister() {
     const [registerValues, setRegisterValues] = useState({
         username: "",
         password: "",
@@ -36,12 +37,11 @@ function UserRegister(props) {
             ...prevstate,
             streaming_providers: streamingProviders
         }));
-       
     }
 
     const registerUser = (e) => {
         e.preventDefault()
-        props.register(registerValues)
+        register(registerValues)
     }
 
 

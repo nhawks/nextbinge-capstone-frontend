@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap'
 import { MDBBtn } from 'mdb-react-ui-kit';
+import { loginUser as login } from '../../api/User/User'
 
 
-function UserLogin(props) {
+function UserLogin() {
     const [loginValues, setLoginValues] = useState({
         username: "",
         password: ""
@@ -19,7 +20,7 @@ function UserLogin(props) {
 
     const loginUser = (e) => {
         e.preventDefault()
-        props.login(loginValues)
+        login(loginValues)
     }
 
 
