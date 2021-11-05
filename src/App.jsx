@@ -37,6 +37,19 @@ class App extends Component {
     }
   }
 
+  // REGISTER USER
+  registerUser = async (user) => {
+    try {
+      await axios.post(this.registerURL, user)
+      this.loginUser({
+        "username": user.username,
+        "password": user.password
+      })
+    } catch(err) {
+      console.log("🚀 ~ file: App.jsx ~ line 50 ~ App ~ registerUser= ~ err", err)
+    }
+  }
+
   // GET USER
   getUserDetails = async (userId) => {
       const authToken = localStorage.getItem('token');
@@ -51,14 +64,13 @@ class App extends Component {
         console.log("🚀 ~ file: App.jsx ~ line 73 ~ App ~ getUserDetails= ~ err", err)
       }
     }
-
   
   
 
   render() {
     const user = this.state.user 
     return ( 
-      <UserAccess login={this.loginUser} />
+      <UserAccess login={this.loginUser} register={this.registerUser} />
      );
   }
 }
