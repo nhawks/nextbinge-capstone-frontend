@@ -41,7 +41,7 @@ class App extends Component {
     const user = this.state.user
     return ( 
       <div>
-        <NavBar user={this.state.user} />
+        <NavBar user={this.state.user} setUser={this.setUser} />
         <Switch>
 
           <Route path="/" exact component={PageHome} />

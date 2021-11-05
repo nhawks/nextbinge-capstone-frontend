@@ -15,7 +15,7 @@ export const loginUser = async (user, setUser) => {
         localStorage.setItem("token", response.data.access)
         const userToken = jwtDecode(response.data.access)
         getUserDetails(userToken.user_id, setUser)
-        // window.location = "/home"
+        // window.location = "/"
     } catch(err) {
         console.log("🚀 ~ file: API User.jsx ~ line 17 ~ loginUser ~ err", err)
     }
@@ -25,7 +25,7 @@ export const loginUser = async (user, setUser) => {
 export const logoutUser = (setUser) => {
     localStorage.removeItem('token');
     const location = window.location.pathname;
-    // setUser(null)
+    setUser(null)
     if (
         location === '/home' 
         || location === '/search' 
@@ -47,6 +47,7 @@ export const registerUser = async (user, setUser) => {
         }, 
         setUser
         )
+        window.location = "/"
     } catch(err) {
         console.log("🚀 ~ file: API User.jsx ~ line 30 ~ registerUser ~ err", err)
     }

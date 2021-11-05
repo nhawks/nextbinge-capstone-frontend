@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
+import { logoutUser as logout } from '../../api/User/User'
 
 
 const NavBar = (props) => {
+
+    const handleLogout = () => {
+        logout(props.setUser)
+    }
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -23,7 +29,7 @@ const NavBar = (props) => {
                             | Login/Register
                         </Link>
                     }
-                    {props.user && <h4>{props.user.username}</h4>}
+                    {props.user && props.user.username}
                     {props.user &&
                         <React.Fragment>
                             <Nav.Link>
@@ -46,7 +52,7 @@ const NavBar = (props) => {
                                     | My Account
                                 </Link>
                             </Nav.Link>
-                            <Nav.Link>
+                            <Nav.Link onClick={handleLogout}>
                                 <i class="bi bi-box-arrow-right"></i>
                                 | Logout
                             </Nav.Link>
