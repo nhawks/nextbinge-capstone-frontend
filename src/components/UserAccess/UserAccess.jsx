@@ -10,9 +10,9 @@ function UserAccess(props) {
         <div>
         <Tabs defaultActiveKey="signUp" className="mb-3">
             <Tab eventKey="login" title="Login">
-                <MDBCard style={{ maxWidth: '30rem' }}>
+                <MDBCard style={{ maxWidth: '35rem' }}>
                     <MDBCardBody>
-                        <MDBCardTitle>Login</MDBCardTitle>
+                        <MDBCardTitle className="text-center">Login</MDBCardTitle>
                             <UserLogin {...props} />
                     </MDBCardBody>
                 </MDBCard>
@@ -20,7 +20,7 @@ function UserAccess(props) {
             <Tab eventKey="signUp" title="Sign Up">
                 <MDBCard style={{ maxWidth: '35rem' }}>
                     <MDBCardBody>
-                        <MDBCardTitle>Sign Up</MDBCardTitle>
+                        <MDBCardTitle className="text-center">Sign Up</MDBCardTitle>
                             <UserRegister {...props} />
                     </MDBCardBody>
                 </MDBCard>
