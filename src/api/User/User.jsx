@@ -21,6 +21,22 @@ export const loginUser = async (user) => {
     }
 }
 
+// LOGOUT
+export const logoutUser = () => {
+    localStorage.removeItem('token');
+    const location = window.location.pathname;
+    setUser(null)
+    if (
+        location === '/home' 
+        || location === '/search' 
+        || location === '/account'
+        || location === '/not-found' 
+        )
+    {
+      window.location = "/"
+    }
+}
+
 // REGISTER USER
 export const registerUser = async (user) => {
     try {
