@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap/Form';
-import { 
-    MDBInput,
-    MDBBtn,
-} from 'mdb-react-ui-kit';
+import Form from 'react-bootstrap/Form';
+import { MDBBtn } from 'mdb-react-ui-kit';
 
 
 function UserLogin(props) {
@@ -12,10 +9,11 @@ function UserLogin(props) {
         password: ""
     });
 
-    const handleChange = (e) => {
-        setLoginValues({
-            [e.target.name]: e.target.value
-        })
+    const handleChange = (event) => {
+        setLoginValues(prevstate => ({
+            ...prevstate,
+            [event.target.name]: event.target.value
+        }));
     }
 
     const loginUser = (e) => {
