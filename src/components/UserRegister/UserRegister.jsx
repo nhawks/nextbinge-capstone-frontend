@@ -5,7 +5,7 @@ import { Row, Col } from 'react-bootstrap'
 import { MDBBtn } from 'mdb-react-ui-kit';
 
 
-function UserRegister() {
+function UserRegister(props) {
     const [registerValues, setRegisterValues] = useState({
         username: "",
         password: "",
@@ -41,7 +41,7 @@ function UserRegister() {
 
     const registerUser = (e) => {
         e.preventDefault()
-        register(registerValues)
+        register(registerValues, props.setUser)
     }
 
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import setUser from '../../App'
+// import setUser from '../../App'
 import jwtDecode from 'jwt-decode';
 
 
@@ -9,23 +9,23 @@ const userURL = "http://localhost:8000/api/auth/user/"
 
 
 // LOGIN
-export const loginUser = async (user) => {
+export const loginUser = async (user, setUser) => {
     try {
         const response = await axios.post(loginURL, user)
         localStorage.setItem("token", response.data.access)
         const userToken = jwtDecode(response.data.access)
-        getUserDetails(userToken.user_id)
-        // window.location = "/"
+        getUserDetails(userToken.user_id, setUser)
+        // window.location = "/home"
     } catch(err) {
         console.log("🚀 ~ file: API User.jsx ~ line 17 ~ loginUser ~ err", err)
     }
 }
 
 // LOGOUT
-export const logoutUser = () => {
+export const logoutUser = (setUser) => {
     localStorage.removeItem('token');
     const location = window.location.pathname;
-    setUser(null)
+    // setUser(null)
     if (
         location === '/home' 
         || location === '/search' 
@@ -38,27 +38,28 @@ export const logoutUser = () => {
 }
 
 // REGISTER USER
-export const registerUser = async (user) => {
+export const registerUser = async (user, setUser) => {
     try {
         await axios.post(registerURL, user)
         loginUser({
         "username": user.username,
         "password": user.password
-        })
+        }, 
+        setUser
+        )
     } catch(err) {
         console.log("🚀 ~ file: API User.jsx ~ line 30 ~ registerUser ~ err", err)
     }
 }
 
 // GET USER
-const getUserDetails = async (userId) => {
+const getUserDetails = async (userId, setUser) => {
     const authToken = localStorage.getItem('token');
     try{ 
         const response = await axios.get(`${userURL}${userId}/`,
         {headers: {Authorization: `Bearer ${authToken}`}})
         const user = response.data
-        console.log(user)
-        new setUser(user)
+        setUser(user)
     } catch(err) {
         console.log("🚀 ~ file: API User.jsx ~ line 45 ~ getUserDetails ~ err", err)
     }

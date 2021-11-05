@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, Switch, Route } from 'react-router';
+import { Redirect, Switch, Route } from "react-router-dom";
 import jwtDecode from 'jwt-decode';
 // import axios from 'axios';
 
@@ -14,39 +14,44 @@ import './App.css'
 
 
 class App extends Component {
-  state = { }
+  state = { 
+    user: null,
+    userToken: null
+  }
 
   componentDidMount() {
     const jwt = localStorage.getItem("token")
     try {
-      const userToken = jwtDecode(jwt)
-      this.setState({userToken})
+      const jwtToken = jwtDecode(jwt)
+      this.setState({
+        userToken: jwtToken
+      })
     } catch(err) {
     console.log("🚀 ~ file: App.jsx ~ line 21 ~ App ~ componentDidMount ~ err", err)
     }
   }
 
   setUser = async (userObject) => {
-    const user = userObject
-    this.setState({user})
+    this.setState({
+      user: userObject
+    })
   }
-  
-  
 
   render() {
-    const user = this.state.user 
+    const user = this.state.user
     return ( 
       <div>
-        <NavBar user={user} />
+        <NavBar user={this.state.user} />
         <Switch>
 
           <Route path="/" exact component={PageHome} />
 
-          {/* Access Page - AllowAny */}
-          <Route path="/access" component={PageAccess} />
-
           {/* Not-Found Page - AllowAny */}
           <Route path="/not-found" component={PageNotFound} />
+
+          {/* Access Page - AllowAny */}
+          <Route path="/access" render={props => <PageAccess {...props} setUser={this.setUser} />} />
+
           
           {/* Home Page - Users Only */}
           <Route 

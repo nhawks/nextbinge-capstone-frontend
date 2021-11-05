@@ -5,7 +5,7 @@ import { MDBBtn } from 'mdb-react-ui-kit';
 import { loginUser as login } from '../../api/User/User'
 
 
-function UserLogin() {
+function UserLogin(props) {
     const [loginValues, setLoginValues] = useState({
         username: "",
         password: ""
@@ -20,7 +20,7 @@ function UserLogin() {
 
     const loginUser = (e) => {
         e.preventDefault()
-        login(loginValues)
+        login(loginValues, props.setUser)
     }
 
 

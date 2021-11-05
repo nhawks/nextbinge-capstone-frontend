@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 
 
-const NavBar = ({ user }) => {
+const NavBar = (props) => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -12,17 +12,19 @@ const NavBar = ({ user }) => {
                     React-Bootstrap
                 </Link>
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Toggle aria-controls="responsive-navbar-nav">
+                <i class="bi bi-list fa-lg"></i>
+            </Navbar.Toggle>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav>
-                    {!user &&
+                    {!props.user &&
                         <Link to="/access" className="nav-link">
                             <i class="bi bi-person-workspace"></i>
                             | Login/Register
                         </Link>
                     }
-                    {user && <h4>{user.username}</h4>}
-                    {user &&
+                    {props.user && <h4>{props.user.username}</h4>}
+                    {props.user &&
                         <React.Fragment>
                             <Nav.Link>
                                 <Link to="/home" className="nav-link">

@@ -8,7 +8,7 @@ import { MDBCard, MDBCardBody, MDBCardTitle } from 'mdb-react-ui-kit';
 function UserAccess(props) {
     return (
         <div>
-        <Tabs defaultActiveKey="signUp" className="mb-3">
+        <Tabs defaultActiveKey="login" className="mb-3">
             <Tab eventKey="login" title="Login">
                 <MDBCard style={{ maxWidth: '35rem' }}>
                     <MDBCardBody>
