@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import "./css/mdb.dark.min.css"
-import App from './App';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 ReactDOM.render(
   <Router>
