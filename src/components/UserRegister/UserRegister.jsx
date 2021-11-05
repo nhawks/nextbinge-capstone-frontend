@@ -104,6 +104,7 @@ function UserRegister(props) {
                         />
                     </Form.Group>
                 </Row>
+                <Row>
                 <Form.Group>
                     <br />
                     <Form.Text>
@@ -111,8 +112,8 @@ function UserRegister(props) {
                     </Form.Text>
                     <br />
                     <MDBBtn
+                        className="me-3 p-3"
                         type="button" 
-                            type="button"
                         toggle 
                         style={{ backgroundColor: '#E50914' }} 
                         value="Netflix" 
@@ -121,6 +122,7 @@ function UserRegister(props) {
                         Netflix
                     </MDBBtn>
                     <MDBBtn 
+                        className="me-3 p-3"
                         type="button"
                         toggle 
                         style={{ backgroundColor: '#00A8E1' }} 
@@ -130,6 +132,7 @@ function UserRegister(props) {
                         Prime Video
                     </MDBBtn>
                     <MDBBtn 
+                        className="me-3 p-3"
                         type="button"
                         toggle 
                         style={{ backgroundColor: '#5822b4' }} 
@@ -139,6 +142,7 @@ function UserRegister(props) {
                         Disney+
                     </MDBBtn>
                     <MDBBtn 
+                        className="me-3 p-3"
                         type="button"
                         toggle 
                         style={{ backgroundColor: '#1ce783' }} 
@@ -148,6 +152,7 @@ function UserRegister(props) {
                         Hulu
                     </MDBBtn>
                     <MDBBtn 
+                        className="me-3 p-3"
                         type="button"
                         toggle
                         style={{ backgroundColor: '#991eeb' }} 
@@ -157,6 +162,7 @@ function UserRegister(props) {
                         HBO Max
                     </MDBBtn>
                 </Form.Group>
+                </Row>
                 <br />
                 <MDBBtn className="btn" color="primary" type="submit">
                     Sign Up
