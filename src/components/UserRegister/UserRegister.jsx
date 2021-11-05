@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import { Row, Col, InputGroup, FormControl } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import { MDBBtn } from 'mdb-react-ui-kit';
 
 
@@ -48,6 +48,7 @@ function UserRegister(props) {
     return (
         <React.Fragment>
             <Form className="my-auto" onSubmit={registerUser}>
+                <hr />
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="registerFormFirstName">
                         <Form.Label>First name</Form.Label>
@@ -105,15 +106,11 @@ function UserRegister(props) {
                     </Form.Group>
                 </Row>
                 <Row>
-                <Form.Group>
                     <br />
-                    <Form.Text>
-                        Select your streaming providers
-                    </Form.Text>
-                    <br />
+                    <p className="text-left text-center text-muted">Select your streaming providers</p>
+                <div className="d-grid gap-4 d-md-block">
                     <MDBBtn
-                        className="me-3 p-3"
-                        type="button" 
+                        type="button"
                         toggle 
                         style={{ backgroundColor: '#E50914' }} 
                         value="Netflix" 
@@ -122,7 +119,6 @@ function UserRegister(props) {
                         Netflix
                     </MDBBtn>
                     <MDBBtn 
-                        className="me-3 p-3"
                         type="button"
                         toggle 
                         style={{ backgroundColor: '#00A8E1' }} 
@@ -132,7 +128,6 @@ function UserRegister(props) {
                         Prime Video
                     </MDBBtn>
                     <MDBBtn 
-                        className="me-3 p-3"
                         type="button"
                         toggle 
                         style={{ backgroundColor: '#5822b4' }} 
@@ -142,7 +137,6 @@ function UserRegister(props) {
                         Disney+
                     </MDBBtn>
                     <MDBBtn 
-                        className="me-3 p-3"
                         type="button"
                         toggle 
                         style={{ backgroundColor: '#1ce783' }} 
@@ -152,7 +146,6 @@ function UserRegister(props) {
                         Hulu
                     </MDBBtn>
                     <MDBBtn 
-                        className="me-3 p-3"
                         type="button"
                         toggle
                         style={{ backgroundColor: '#991eeb' }} 
@@ -161,12 +154,14 @@ function UserRegister(props) {
                     >
                         HBO Max
                     </MDBBtn>
-                </Form.Group>
+                </div>
                 </Row>
                 <br />
+                <div className="d-grid col-8 mt-2 mb-2 mx-auto">
                 <MDBBtn className="btn" color="primary" type="submit">
                     Sign Up
                 </MDBBtn>
+                </div>
             </Form>
         </React.Fragment> 
     );
