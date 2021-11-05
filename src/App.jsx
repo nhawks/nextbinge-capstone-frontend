@@ -3,7 +3,6 @@ import { Redirect, Switch, Route } from 'react-router';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import './App.css'
-import UserAccess from './components/UserAccess/UserAccess';
 
 
 class App extends Component {
@@ -29,7 +28,9 @@ class App extends Component {
   render() {
     const user = this.state.user 
     return ( 
-      <UserAccess />
+      <div>
+       
+      </div>
     );
   }
 }
