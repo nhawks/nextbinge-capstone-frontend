@@ -1,60 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import { logoutUser as logout } from '../../api/User/User'
 
 
 const NavBar = (props) => {
-
-    const handleLogout = () => {
-        logout(props.setUser)
-    }
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
             <Navbar.Brand href="#home">
-                <Link to="/" className="nav-link">
+                <Link to="/home" className="nav-link">
                     React-Bootstrap
                 </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav">
-                <i class="bi bi-list fa-lg"></i>
+                <i className="bi bi-list fa-lg"></i>
             </Navbar.Toggle>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav>
-                    {!props.user &&
+                    {!props.auth &&
                         <Link to="/access" className="nav-link">
-                            <i class="bi bi-person-workspace"></i>
-                            | Login/Register
+                            <i className="bi bi-person-workspace"></i>
+                                Login/Register
                         </Link>
                     }
-                    {props.user && props.user.username}
-                    {props.user &&
+                    {props.auth &&
                         <React.Fragment>
                             <Nav.Link>
                                 <Link to="/home" className="nav-link">
-                                    <i class="bi bi-house-fill"></i>
-                                    | Home
+                                    <i className="bi bi-house-fill"></i>
+                                        Home
                                 </Link>
                             </Nav.Link>
 
                             <Nav.Link>
                                 <Link to="/search" className="nav-link">
-                                    <i class="bi bi-tv-fill"></i>
-                                    | Search
+                                    <i className="bi bi-tv-fill"></i>
+                                        Search
                                 </Link>
                             </Nav.Link>
 
                             <Nav.Link>
                                 <Link to="/account" className="nav-link">
-                                    <i class="bi bi-person-circle"></i>
-                                    | My Account
+                                    <i className="bi bi-person-circle"></i>
+                                        My Account
                                 </Link>
                             </Nav.Link>
-                            <Nav.Link onClick={handleLogout}>
-                                <i class="bi bi-box-arrow-right"></i>
-                                | Logout
+                            <Nav.Link onClick={props.logout}>
+                                <i className="bi bi-box-arrow-right"></i>
+                                    Logout
                             </Nav.Link>
                         </React.Fragment>
                     }
