@@ -10,7 +10,8 @@ const NavBar = (props) => {
             <Container>
             <Navbar.Brand href="#home">
                 <Link to="/home" className="nav-link">
-                    React-Bootstrap
+                    <i class="fas fa-tv"></i>
+                    NextBinge
                 </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav">
@@ -47,8 +48,10 @@ const NavBar = (props) => {
                                 </Link>
                             </Nav.Link>
                             <Nav.Link onClick={props.logout}>
-                                <i className="bi bi-box-arrow-right"></i>
-                                    Logout
+                                <Link className="nav-link">
+                                    <i className="bi bi-box-arrow-right"></i>
+                                        Logout
+                                </Link>
                             </Nav.Link>
                         </React.Fragment>
                     }
