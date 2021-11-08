@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap'
 import { MDBBtn } from 'mdb-react-ui-kit';
-import { loginUser as login } from '../../api/User/User'
 
 
 function UserLogin(props) {
@@ -12,15 +11,14 @@ function UserLogin(props) {
     });
 
     const handleChange = (event) => {
-        setLoginValues(prevstate => ({
-            ...prevstate,
-            [event.target.name]: event.target.value
+        setLoginValues(prevState => ({
+            ...prevState, [event.target.name]: event.target.value
         }));
     }
 
     const loginUser = (e) => {
         e.preventDefault()
-        login(loginValues, props.setUser)
+        props.login(loginValues, props.setUser)
     }
 
 
