@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import { registerUser as register } from '../../api/User/User'
 import { Row, Col } from 'react-bootstrap'
 import { MDBBtn } from 'mdb-react-ui-kit';
 
@@ -16,14 +15,13 @@ function UserRegister(props) {
     });
 
     const handleChange = (event) => {
-        setRegisterValues(prevstate => ({
-            ...prevstate,
+        setRegisterValues(prevState => ({
+            ...prevState,
             [event.target.name]: event.target.value
         }));
     }
 
     const handleStream = (e) => {
-
         const serviceProvider = e.target.value
         const streamingProviders = [...registerValues.streaming_providers]
 
@@ -33,15 +31,15 @@ function UserRegister(props) {
         } else {
             streamingProviders.push(serviceProvider)
         }
-        setRegisterValues(prevstate => ({
-            ...prevstate,
+        setRegisterValues(prevState => ({
+            ...prevState,
             streaming_providers: streamingProviders
         }));
     }
 
     const registerUser = (e) => {
         e.preventDefault()
-        register(registerValues, props.setUser)
+        props.register(registerValues, props.setUser)
     }
 
 
