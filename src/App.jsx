@@ -9,6 +9,7 @@ import PageAccess from './components/PageAccess/PageAccess';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import PageAccount from './components/PageAccount/PageAccount';
 import PageSearch from './components/PageSearch/PageSearch';
+import PageShowDetails from './components/PageShowDetails/PageShowDetails'
 
 import './App.css'
 
@@ -173,6 +174,18 @@ class App extends Component {
                 return <Redirect to="/access" />
               } else {
                 return <PageSearch {...props} />
+              }
+            }}
+          />
+
+          {/*//? TV Show Details - Users Only */}
+          <Route 
+            path="/show-details"
+            render={props => {
+              if(!current.auth) {
+                return <Redirect to="/access" />
+              } else {
+                return <PageShowDetails {...props} />
               }
             }}
           />
