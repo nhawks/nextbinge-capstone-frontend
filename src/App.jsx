@@ -24,6 +24,7 @@ class App extends Component {
     const jwt = localStorage.getItem("token")
     try {
       const jwtToken = jwtDecode(jwt)
+      this.getUserDetails(jwtToken.user_id)
       this.setState({
         auth: jwtToken
       })
@@ -39,36 +40,31 @@ class App extends Component {
 
 
   //*---------------------- USER FUNCTIONS ----------------------
-  // LOGIN
+  //? LOGIN
   loginUser = async (user) => {
     try {
         const response = await axios.post(this.loginURL, user)
         localStorage.setItem("token", response.data.access)
         const token = jwtDecode(response.data.access)
         this.getUserDetails(token.user_id)
-        // window.location = "/"
+        window.location = "/"
     } catch(err) {
         console.log("🚀 ~ file: API User.jsx ~ line 17 ~ loginUser ~ err", err)
     }
   }
 
-  // LOGOUT
-  logoutUser = (setUser) => {
+  //? LOGOUT
+  logoutUser = () => {
       localStorage.removeItem('token');
       const location = window.location.pathname;
-      setUser(null)
-      if (
-          location === '/home' 
-          || location === '/search' 
-          || location === '/account'
-          || location === '/not-found' 
-          )
-      {
-        window.location = "/"
-      }
+      this.setState({
+        user: null,
+        auth: null
+      })
+      window.location = "/access"
   }
 
-  // REGISTER USER
+  //? REGISTER USER
   registerUser = async (user) => {
       try {
           await axios.post(this.registerURL, user)
@@ -76,26 +72,30 @@ class App extends Component {
           "username": user.username,
           "password": user.password
           })
-          window.location = "/"
+          window.location = "/home"
       } catch(err) {
           console.log("🚀 ~ file: API User.jsx ~ line 30 ~ registerUser ~ err", err)
       }
   }
 
-  // GET USER
+  //? GET USER
   getUserDetails = async (userID) => {
       const authToken = localStorage.getItem('token');
       try{ 
           const response = await axios.get(`${this.userURL}${userID}/`,
           {headers: {Authorization: `Bearer ${authToken}`}})
-          const user = response.data
-          this.setUser(user)
+          const requestedUser = response.data
+          console.log("🚀 ~ file: App.jsx ~ line 96 ~ App ~ getUserDetails= ~ response.data", response.data)
+          this.setState({
+            user: requestedUser
+          })
+          
       } catch(err) {
           console.log("🚀 ~ file: API User.jsx ~ line 45 ~ getUserDetails ~ err", err)
       }
   }
 
-  // UPDATE STATE FOR USER
+  //? UPDATE STATE FOR USER
   setUser = async (userObject) => {
     this.setState(prevState =>({
       ...prevState, user: userObject
@@ -110,18 +110,18 @@ class App extends Component {
     const user = this.state.user
     return ( 
       <div>
-        <NavBar {...current} {...access} setUser={this.setUser}  />
+        <NavBar {...current} {...access} setUser={this.setUser} />
         <Switch>
 
-          {/*//? If user is logged in show the home page else show the access page. */}
+          {/*//? If user is logged in redirect to home else to access*/}
           <Route 
             path="/" 
             exact
-            component={() => {
-              if (!current.user) {
-                return PageAccess
+            render={() => {
+              if(current.auth) {
+                return <Redirect to="/home" />
               } else {
-                return PageHome
+                return <Redirect to="/access" />
               }
             }}
           />
@@ -130,13 +130,22 @@ class App extends Component {
           <Route path="/not-found" component={PageNotFound} />
 
           {/*//? Access Page - AllowAny */}
-          <Route path="/access" render={props => <PageAccess {...props} {...access} setUser={this.setUser} />} />
+          <Route 
+            path="/access" 
+            render={props => {
+              if(current.auth) {
+                return <Redirect to="/home" />
+              } else {
+                return <PageAccess {...props} {...access} />
+              }
+            }}
+          />
           
           {/*//? Home Page - Users Only */}
           <Route 
             path="/home"
             render={props => {
-              if(!current.user) {
+              if(!current.auth) {
                 return <Redirect to="/access" />
               } else {
                 return <PageHome {...props} {...current} />
@@ -148,7 +157,7 @@ class App extends Component {
           <Route 
             path="/account"
             render={props => {
-              if(!current.user) {
+              if(!current.auth) {
                 return <Redirect to="/access" />
               } else {
                 return <PageAccount {...props} />
@@ -160,14 +169,14 @@ class App extends Component {
           <Route 
             path="/search"
             render={props => {
-              if(!current.user) {
+              if(!current.auth) {
                 return <Redirect to="/access" />
               } else {
                 return <PageSearch {...props} />
               }
             }}
           />
-          
+
           {/*//? Redirect Page */}
           <Redirect to='/not-found' />
 
