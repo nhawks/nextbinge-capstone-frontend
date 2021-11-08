@@ -1,8 +1,11 @@
+// Packages & etc.
 import React, { Component } from 'react';
 import { Redirect, Switch, Route } from "react-router-dom";
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
+import { RAPID_API_KEY, TMDB_API_KEY } from './keys';
 
+// Components
 import NavBar from './components/NavBar/NavBar';
 import PageHome from './components/PageHome/PageHome';
 import PageAccess from './components/PageAccess/PageAccess';
@@ -11,16 +14,19 @@ import PageAccount from './components/PageAccount/PageAccount';
 import PageSearch from './components/PageSearch/PageSearch';
 import PageShowDetails from './components/PageShowDetails/PageShowDetails'
 
+// Styling
 import './App.css'
 
 
 class App extends Component {
   state = { 
+    // user
     user: null,
-    auth: null
+    auth: null,
+    // tv show
+    showID: null,
   }
 
-  
   componentDidMount() {
     const jwt = localStorage.getItem("token")
     try {
@@ -35,13 +41,17 @@ class App extends Component {
   }
   
   //*---------------------- URLs ----------------------
+  //? USER
   loginURL = "http://localhost:8000/api/auth/login/"
   registerURL = "http://localhost:8000/api/auth/register/"
   userURL = "http://localhost:8000/api/auth/user/"
 
+  //? TV SHOW
+
 
   //*---------------------- USER FUNCTIONS ----------------------
-  //? LOGIN
+
+  //? LOGIN: Logs the user in and sets the token in localStorage. Redirects to home page after.
   loginUser = async (user) => {
     try {
         const response = await axios.post(this.loginURL, user)
@@ -54,10 +64,9 @@ class App extends Component {
     }
   }
 
-  //? LOGOUT
+  //? LOGOUT: Set state to null for user info and remove the token from localStorage.  
   logoutUser = () => {
       localStorage.removeItem('token');
-      const location = window.location.pathname;
       this.setState({
         user: null,
         auth: null
@@ -65,7 +74,7 @@ class App extends Component {
       window.location = "/access"
   }
 
-  //? REGISTER USER
+  //? REGISTER USER: Send user object to the backend once the user is created automatically logs the user in.
   registerUser = async (user) => {
       try {
           await axios.post(this.registerURL, user)
@@ -73,13 +82,12 @@ class App extends Component {
           "username": user.username,
           "password": user.password
           })
-          window.location = "/home"
       } catch(err) {
           console.log("🚀 ~ file: API User.jsx ~ line 30 ~ registerUser ~ err", err)
       }
   }
 
-  //? GET USER
+  //? GET USER: Retrieves all the user's information from the backend. 
   getUserDetails = async (userID) => {
       const authToken = localStorage.getItem('token');
       try{ 
@@ -96,6 +104,9 @@ class App extends Component {
       }
   }
 
+  // TODO: GET USER WATCHED SHOWS:
+  //? GET WATCHED SHOWS: 
+
   //? UPDATE STATE FOR USER
   setUser = async (userObject) => {
     this.setState(prevState =>({
@@ -104,10 +115,29 @@ class App extends Component {
   }
 
 
+  //*---------------------- TV SHOW FUNCTIONS ----------------------
+
+  //? UPDATE STATE FOR SEARCH - Used to search for the selected TV Show.
+  setShowID = async (ID) => {
+    this.setState({
+      showID: ID
+    })
+  }
+
+
+  //*---------------------- RENDER/RETURN ----------------------
+
   render() {
     const current = {user: this.state.user, auth: this.state.auth}
-    const access = {login: this.loginUser, logout: this.logoutUser, register: this.registerUser, getUser: this.getUserDetails}
-    const func = {setUser: this.setUser}
+    const access = {
+      login: this.loginUser, 
+      logout: this.logoutUser, 
+      register: this.registerUser, 
+      getUser: this.getUserDetails
+    }
+    const userFunctions = {setUser: this.setUser}
+    const showFunctions = {setShowID: this.setShowID}
+    const showData = {show: this.state.show, tv_id: this.state.showID}
     const user = this.state.user
     return ( 
       <div>
@@ -173,7 +203,7 @@ class App extends Component {
               if(!current.auth) {
                 return <Redirect to="/access" />
               } else {
-                return <PageSearch {...props} />
+                return <PageSearch {...props} {...showFunctions} />
               }
             }}
           />
@@ -185,7 +215,7 @@ class App extends Component {
               if(!current.auth) {
                 return <Redirect to="/access" />
               } else {
-                return <PageShowDetails {...props} />
+                return <PageShowDetails {...props} {...showData} {...showFunctions} />
               }
             }}
           />
