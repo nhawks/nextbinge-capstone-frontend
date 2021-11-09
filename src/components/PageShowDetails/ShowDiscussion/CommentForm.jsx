@@ -41,6 +41,7 @@ const CommentForm = (props) => {
                         }))
                         setValidated(true)
                     })
+                    props.getDiscussion()
                 } catch(err) {
                     console.log("🚀 ~ file: CommentForm.jsx ~ line 44 ~ postMessageBody ~ err", err)
                 }

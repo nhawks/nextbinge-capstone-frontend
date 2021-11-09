@@ -41,14 +41,12 @@ const ReplyForm = (props) => {
                         }))
                         setValidated(true)
                     })
+                    props.getDiscussion()
                 } catch(err) {
                     console.log("🚀 ~ file: ReplyForm.jsx ~ line 45 ~ postMessageBody ~ err", err)
                 }
             }
-
             postMessageBody()
-            // TODO: Update discussion section state
-            
         }
         event.preventDefault();
         setValidated(false)

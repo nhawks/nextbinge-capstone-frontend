@@ -11,23 +11,24 @@ function ShowDiscussion(props) {
     const [discussion, setDiscussion] = useState();
 
     useEffect(() => {
-        try{
-            const getDiscussion = async () => {
-                const response = await axios.get(
-                    `http://localhost:8000/api/discussions/${props.show.id}-${props.show.name}/discussion`
-                )
-                setDiscussion(response.data)
-                setLoading(false)
-            }
-            getDiscussion()
-        } catch(err) {
-            console.log("🚀 ~ file: ShowDiscussion.jsx ~ line 24 ~ useEffect ~ err", err)
-        }
+        getDiscussion()
     }, []);
+
+    const getDiscussion = async () => {
+        try {
+            const response = await axios.get(
+                `http://localhost:8000/api/discussions/${props.show.id}-${props.show.name}/discussion`
+            )
+            setDiscussion(response.data)
+            setLoading(false)
+        } catch(err) {
+            console.log("🚀 ~ file: ShowDiscussion.jsx ~ line 38 ~ getDiscussion ~ err", err)
+        }
+    }
 
     
     return ( 
-
+    
         <div className = "discussionSection">
             <Accordion>
                 <Accordion.Item eventKey="0">
@@ -43,10 +44,17 @@ function ShowDiscussion(props) {
                             }
                             {!isLoading &&
                             <>
-                                <CommentForm {...props} hasDiscussion={discussion ? true : false} />
+                                <CommentForm 
+                                    {...props} 
+                                    hasDiscussion={discussion ? true : false} 
+                                    getDiscussion={getDiscussion} 
+                                />
                                 <Card>
-                                    {/* <Comments {...props} userComments={discussion[0]} userReplies={discussion[1]} /> */}
-                                    <Comments {...props} discussion={discussion} />
+                                    <Comments 
+                                        {...props} 
+                                        discussion={discussion} 
+                                        getDiscussion={getDiscussion} 
+                                    />
                                 </Card>
                             </>
                             }

@@ -9,7 +9,7 @@ const Replies = (props) => {
     const userReplies = props.discussion[1]
 
     return (
-         
+        
         <Accordion>
             <Accordion.Item eventKey="1">
                 <Accordion.Header className="bg-dark">
@@ -37,15 +37,11 @@ const Replies = (props) => {
                                     </p>    
                                 </Card.Body>
                             </Card>
-                        ))
-                    }
+                    ))}
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>
-
-
-        
-     );
+    );
 }
 
 export default Replies;

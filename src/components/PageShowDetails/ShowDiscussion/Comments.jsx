@@ -26,10 +26,18 @@ function Comments (props) {
                                         {comment.username}
                                     </div>
                                     <div className="col">
-                                        {/*//TODO: Like Comment */}
-                                        <CommentVote vote={"thumbs-up"} commentID={comment.id} commentVotes={comment.likes} />
-                                        {/*//TODO: Dislike Comment */}
-                                        <CommentVote vote={"thumbs-down"} commentID={comment.id} commentVotes={comment.dislikes} />
+                                        <CommentVote 
+                                            vote={"thumbs-up"} 
+                                            commentID={comment.id} 
+                                            commentVotes={comment.likes} 
+                                            getDiscussion={props.getDiscussion} 
+                                        />
+                                        <CommentVote 
+                                            vote={"thumbs-down"} 
+                                            commentID={comment.id} 
+                                            commentVotes={comment.dislikes} 
+                                            getDiscussion={props.getDiscussion} 
+                                        />
                                     </div>
                                 </div>
                             </Card.Header>
@@ -38,7 +46,11 @@ function Comments (props) {
                                     {comment.message}
                                 </p>    
                             </Card.Body>
-                        <Replies {...props} commentOP={comment.username} commentID={comment.id} />
+                        <Replies 
+                            {...props} 
+                            commentOP={comment.username} 
+                            commentID={comment.id} 
+                        />
                         </Card>
                         </>
                     )
