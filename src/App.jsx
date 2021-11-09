@@ -94,7 +94,6 @@ class App extends Component {
           const response = await axios.get(`${this.userURL}${userID}/`,
           {headers: {Authorization: `Bearer ${authToken}`}})
           const requestedUser = response.data
-          console.log("🚀 ~ file: App.jsx ~ line 96 ~ App ~ getUserDetails= ~ response.data", response.data)
           this.setState({
             user: requestedUser
           })
