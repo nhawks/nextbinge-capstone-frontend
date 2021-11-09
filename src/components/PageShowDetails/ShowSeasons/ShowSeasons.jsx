@@ -12,9 +12,11 @@ const ShowSeasons = ({ show }) => {
     return (
         <Accordion>
             <Accordion.Item eventKey="0">
-                <Accordion.Header className="bg-dark">
-                    Seasons: {show.number_of_seasons}{" "}
-                    | Episodes: {show.number_of_episodes}
+                <Accordion.Header>
+                    <h7 className="text-white">
+                        Seasons: {show.number_of_seasons}{" "}
+                        | Episodes: {show.number_of_episodes}
+                    </h7> 
                 </Accordion.Header>
                 <Accordion.Body>
                     <ListGroup>
