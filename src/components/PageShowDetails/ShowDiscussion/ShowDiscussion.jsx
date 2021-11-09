@@ -45,7 +45,7 @@ function ShowDiscussion(props) {
                             <>
                                 <DiscussionForm {...props} hasDiscussion={discussion ? true : false} />
                                 <Card>
-                                    {/* <Comments {...props} userComments={discussion[0]} userReplies={discussion[1]} /> */}
+                                    <Comments {...props} userComments={discussion[0]} userReplies={discussion[1]} />
                                 </Card>
                             </>
                             }
