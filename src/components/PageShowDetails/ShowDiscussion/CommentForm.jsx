@@ -5,7 +5,7 @@ import {FormControl, Button, FloatingLabel, Row, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form'
 
 
-const DiscussionForm = (props) => {
+const CommentForm = (props) => {
 
     const [messageBody, setMessageBody] = useState({
         tv_show: `${props.show.id}-${props.show.name}`, 
@@ -42,7 +42,7 @@ const DiscussionForm = (props) => {
                         setValidated(true)
                     })
                 } catch(err) {
-                    console.log("🚀 ~ file: DiscussionForm.jsx ~ line 44 ~ postMessageBody ~ err", err)
+                    console.log("🚀 ~ file: CommentForm.jsx ~ line 44 ~ postMessageBody ~ err", err)
                 }
             }
 
@@ -69,7 +69,7 @@ const DiscussionForm = (props) => {
                 <Col>
                     <Form.Group controlId="messageValidation">
                         <FloatingLabel 
-                            label={`What did you like or dislike about <<{props.show.name}>>?`}>
+                            label={`What did you like or dislike about ${props.show.name}?`}>
                             <FormControl 
                                 type="text"
                                 placeholder="Discussion"
@@ -90,4 +90,4 @@ const DiscussionForm = (props) => {
     );
 }
 
-export default DiscussionForm;
+export default CommentForm;
