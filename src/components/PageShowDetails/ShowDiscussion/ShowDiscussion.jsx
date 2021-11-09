@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Spinner } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion';
-import DiscussionForm from './DiscussionForm';
 import Comments from './Comments';
 import axios from 'axios';
+import CommentForm from './CommentForm';
 
 function ShowDiscussion(props) {
 
@@ -43,9 +43,10 @@ function ShowDiscussion(props) {
                             }
                             {!isLoading &&
                             <>
-                                <DiscussionForm {...props} hasDiscussion={discussion ? true : false} />
+                                <CommentForm {...props} hasDiscussion={discussion ? true : false} />
                                 <Card>
-                                    <Comments {...props} userComments={discussion[0]} userReplies={discussion[1]} />
+                                    {/* <Comments {...props} userComments={discussion[0]} userReplies={discussion[1]} /> */}
+                                    <Comments {...props} discussion={discussion} />
                                 </Card>
                             </>
                             }
