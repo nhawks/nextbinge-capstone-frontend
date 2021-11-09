@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { TMDB_API_KEY } from '../../../keys';
-
-import { Card, Row, Col, Spinner} from 'react-bootstrap';
+import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
+
 
 const ShowSeasons = ({ show }) => {
 
