@@ -23,9 +23,11 @@ const CommentVote = ({ vote, commentID, commentVotes, getDiscussion }) => {
             title={`${vote === "thumbs-up" ? "Like" : "Dislike"}`}
         >
             <a className='mx-3' href='#!' onClick={submitVote}>
-                <i className={`bi bi-hand-${vote} fa-lg text-light`}></i>
+                <i className={`text-light me-2`}>
+                    <span class="material-icons">{vote}</span>
+                </i>
                 <MDBBadge 
-                    color={`${vote === "thumbs-up" ? "success" : "danger"}`} 
+                    color={`${vote === "thumb_up" ? "success" : "danger"}`} 
                     notification pill
                 >
                     {commentVotes}

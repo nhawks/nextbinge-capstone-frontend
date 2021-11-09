@@ -27,13 +27,13 @@ function Comments (props) {
                                     </div>
                                     <div className="col">
                                         <CommentVote 
-                                            vote={"thumbs-up"} 
+                                            vote={"thumb_up"} 
                                             commentID={comment.id} 
                                             commentVotes={comment.likes} 
                                             getDiscussion={props.getDiscussion} 
                                         />
                                         <CommentVote 
-                                            vote={"thumbs-down"} 
+                                            vote={"thumb_down"} 
                                             commentID={comment.id} 
                                             commentVotes={comment.dislikes} 
                                             getDiscussion={props.getDiscussion} 
