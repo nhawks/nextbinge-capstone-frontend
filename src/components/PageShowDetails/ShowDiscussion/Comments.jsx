@@ -1,6 +1,7 @@
 import React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
+import CommentVote from './CommentVote';
 import Replies from './Replies';
 
 
@@ -25,7 +26,10 @@ function Comments (props) {
                                         {comment.username}
                                     </div>
                                     <div className="col">
-                                        {/*//TODO: Like & Dislike Comment */}
+                                        {/*//TODO: Like Comment */}
+                                        <CommentVote vote={"thumbs-up"} commentID={comment.id} commentVotes={comment.likes} />
+                                        {/*//TODO: Dislike Comment */}
+                                        <CommentVote vote={"thumbs-down"} commentID={comment.id} commentVotes={comment.dislikes} />
                                     </div>
                                 </div>
                             </Card.Header>
