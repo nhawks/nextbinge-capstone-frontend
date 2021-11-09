@@ -5,6 +5,7 @@ import { TMDB_API_KEY } from '../../../keys';
 import ShowSeasons from '../ShowSeasons/ShowSeasons';
 
 import { Card, Row, Col, Spinner} from 'react-bootstrap';
+import ShowDiscussion from '../ShowDiscussion/ShowDiscussion';
 
 
 const ShowDetails = (props) => {
@@ -67,6 +68,7 @@ const ShowDetails = (props) => {
                 </Card.Body>
                 </Col>
             </Row>
+            <ShowDiscussion {...props} show={show} />
         </Card>
     )
 }
