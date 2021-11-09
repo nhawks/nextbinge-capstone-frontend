@@ -135,10 +135,10 @@ class App extends Component {
       register: this.registerUser, 
       getUser: this.getUserDetails
     }
-    const userFunctions = {setUser: this.setUser}
     const showFunctions = {setShowID: this.setShowID}
     const showData = {show: this.state.show, tv_id: this.state.showID}
-    const user = this.state.user
+    // const userFunctions = {setUser: this.setUser}
+    // const user = this.state.user
     return ( 
       <div>
         <NavBar {...current} {...access} setUser={this.setUser} />
@@ -215,7 +215,7 @@ class App extends Component {
               if(!current.auth) {
                 return <Redirect to="/access" />
               } else {
-                return <PageShowDetails {...props} {...showData} {...showFunctions} />
+                return <PageShowDetails {...props} {...showData} {...showFunctions} username={current.user.username} />
               }
             }}
           />
