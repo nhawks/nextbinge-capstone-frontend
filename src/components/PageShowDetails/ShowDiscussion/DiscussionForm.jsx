@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
+import axios from 'axios';
+
 import {FormControl, Button, FloatingLabel, Row, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form'
-import axios from 'axios';
 
 
 const DiscussionForm = (props) => {
@@ -57,7 +58,7 @@ const DiscussionForm = (props) => {
     return ( 
         <Row className="g-2 mb-5">
             <h5 className="text-start p-2">
-                {props.hasReviews ? "Join the conversation!": "Be the first to start the discussion!"}
+                {props.hasDiscussion ? "Join the conversation!": "Be the first to start the discussion!"}
             </h5>
             <Form 
                 className="d-flex" 
