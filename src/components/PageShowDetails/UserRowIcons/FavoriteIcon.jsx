@@ -6,8 +6,9 @@ const FavoriteIcon = (props) => {
     const newFavorite = async () => {
         try {
             const jwt = localStorage.getItem("token")
-            await axios.post("http://loclahost:8000/api/show/watched/add", {
-                tv_show_id: props.show.id,
+            await axios.post("http://localhost:8000/api/show/watched/add", 
+            {
+                tv_show_id: props.showID,
                 is_favorite: true,
                 liked_show: true,
                 tv_show_data: props.show
@@ -21,19 +22,19 @@ const FavoriteIcon = (props) => {
     }
 
     const updateFavorite = async () => {
-        const jwt = localStorage.getItem("token")
-        const update = {
-            id: props.show.databaseID,
-            is_favorite: !props.isFavorite
+        try {
+            const jwt = localStorage.getItem("token")
+            await axios.patch("http://localhost:8000/api/show/favorites/update", 
+            {
+                id: props.show.databaseID,
+                is_favorite: !props.isFavorite
+            }, {
+                headers: { Authorization: `Bearer ${jwt}`}
+            })
+            props.getWatchedShows()
+        } catch (err) {
+            console.log("🚀 ~ file: FavoriteIcon.jsx ~ line 36 ~ updateFavorite ~ err", err)
         }
-        await axios.patch("http://127.0.0.1:8000/api/show/favorites/update", 
-        {
-            id: props.show.databaseID,
-            is_favorite: !props.isFavorite
-        }, {
-            headers: { Authorization: `Bearer ${jwt}`}
-        })
-        props.getWatchedShows()
     }
 
     const handleClick = () => {
