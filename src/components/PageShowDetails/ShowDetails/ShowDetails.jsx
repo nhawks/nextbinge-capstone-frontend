@@ -14,6 +14,7 @@ const ShowDetails = (props) => {
     const [isLoading, setLoading] = useState(true)
     const [show, setShow] = useState(props.show);
     const [userRelationship, setUserRelationship] = useState({
+        databaseID: null,
         isFavorite: false,
         likedShow: null,
         watchedShow: false,
@@ -29,6 +30,7 @@ const ShowDetails = (props) => {
                 }})
                 if (showHasUserInput) {
                     setUserRelationship({
+                        databaseID: showHasUserInput.id,
                         isFavorite: showHasUserInput.is_favorite,
                         likedShow: showHasUserInput.liked_show,
                         watchedShow: true,
@@ -38,14 +40,14 @@ const ShowDetails = (props) => {
                 setLoading(false)
             }
             
-
+            console.log("🚀 ~ file: ShowDetails.jsx ~ line 24 ~ useEffect ran")
             getShow()
         } catch(err) {
             console.log("🚀 ~ file: ShowDetails.jsx ~ line 24 ~ useEffect ~ err", err)
         }
 
         
-    }, []);
+    }, [props.watchedShows]);
 
     const showHasUserInput = props.watchedShows.find(show => show.tv_show_id === props.showID)
 
@@ -79,7 +81,7 @@ const ShowDetails = (props) => {
                     <Card.Text className="text-muted">
                         Show Status: {show.status}
                     </Card.Text>
-                    <UserRowIcons {...props} {...userRelationship} />
+                    <UserRowIcons {...props} {...userRelationship} show={userRelationship.watchedShow ? userRelationship : show} />
                     <ShowSeasons show={show} /> {/*//TODO: Add pagination to seasons accordion */}
                 </Card.Body>
                 </Col>
