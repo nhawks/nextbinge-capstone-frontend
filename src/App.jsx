@@ -24,6 +24,7 @@ class App extends Component {
     auth: null,
     // tv show
     showID: null,
+    watchedShows: null
   };
 
   componentDidMount() {
@@ -34,6 +35,7 @@ class App extends Component {
       this.setState({
         auth: jwtToken,
       });
+      this.getWatchedShows()
     } catch (err) {
       console.log(
         "🚀 ~ file: App.jsx ~ line 21 ~ App ~ componentDidMount ~ err",
@@ -93,10 +95,10 @@ class App extends Component {
 
   //? GET USER: Retrieves all the user's information from the backend.
   getUserDetails = async (userID) => {
-    const authToken = localStorage.getItem("token");
+    const jwt = localStorage.getItem("token");
     try {
       const response = await axios.get(`${this.userURL}${userID}/`, {
-        headers: { Authorization: `Bearer ${authToken}` },
+        headers: { Authorization: `Bearer ${jwt}` },
       });
       const requestedUser = response.data;
       this.setState({
@@ -110,9 +112,7 @@ class App extends Component {
     }
   };
 
-  // TODO: GET USER WATCHED SHOWS:
-  //? GET WATCHED SHOWS:
-
+  
   //? UPDATE STATE FOR USER
   setUser = async (userObject) => {
     this.setState((prevState) => ({
@@ -120,15 +120,33 @@ class App extends Component {
       user: userObject,
     }));
   };
-
+  
   //*---------------------- TV SHOW FUNCTIONS ----------------------
-
-  //? UPDATE STATE FOR SEARCH - Used to search for the selected TV Show.
+  
+  //? UPDATE STATE FOR SEARCH - Used to get for the selected TV Show's details.
   setShowID = async (ID) => {
     this.setState({
-      showID: ID,
+      showID: ID
     });
   };
+  
+  // TODO: GET USER WATCHED SHOWS:
+  //? GET WATCHED SHOWS:
+  getWatchedShows = async () => {
+    try {
+      const jwt = localStorage.getItem('token')
+      const response = await axios.get("http://localhost:8000/api/show/watched/", {
+        headers: { Authorization: `Bearer ${jwt}`} 
+      })
+      this.setState({
+        watchedShows: response.data
+      })
+    } catch(err) {
+      console.log("🚀 ~ file: App.jsx ~ line 145 ~ App ~ getWatchedShows= ~ err", err)
+    }
+  }
+
+
 
   //*---------------------- RENDER/RETURN ----------------------
 
@@ -140,8 +158,8 @@ class App extends Component {
       register: this.registerUser,
       getUser: this.getUserDetails,
     };
-    const showFunctions = { setShowID: this.setShowID };
-    const showData = { show: this.state.show, tv_id: this.state.showID };
+    const showFunctions = { setShowID: this.setShowID, getWatchedShows: this.getWatchedShows };
+    const showData = { showID: this.state.showID, watchedShows: this.state.watchedShows };
     // const userFunctions = {setUser: this.setUser}
     // const user = this.state.user
     return (
