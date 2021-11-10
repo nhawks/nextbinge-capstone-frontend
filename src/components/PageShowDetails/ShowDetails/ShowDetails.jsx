@@ -13,18 +13,32 @@ import { Card, Row, Col, Spinner} from 'react-bootstrap';
 const ShowDetails = (props) => {
     const [isLoading, setLoading] = useState(true)
     const [show, setShow] = useState(props.show);
+    const [userRelationship, setUserRelationship] = useState({
+        isFavorite: false,
+        likedShow: null,
+        watchedShow: false,
+    });
 
     useEffect(() => {
         try {
             const getShow = async () => {
-                const response = await axios.get(`https://api.themoviedb.org/3/tv/${props.tv_id}`,
+                const response = await axios.get(`https://api.themoviedb.org/3/tv/${props.showID}`,
                 {params: {
                     api_key: TMDB_API_KEY,
                     language: "en-US"
                 }})
+                if (showHasUserInput) {
+                    setUserRelationship({
+                        isFavorite: showHasUserInput.is_favorite,
+                        likedShow: showHasUserInput.liked_show,
+                        watchedShow: true,
+                    })
+                }
                 setShow(response.data)
                 setLoading(false)
             }
+            
+
             getShow()
         } catch(err) {
             console.log("🚀 ~ file: ShowDetails.jsx ~ line 24 ~ useEffect ~ err", err)
@@ -32,6 +46,8 @@ const ShowDetails = (props) => {
 
         
     }, []);
+
+    const showHasUserInput = props.watchedShows.find(show => show.tv_show_id === props.showID)
 
     if (isLoading) {
         return (
@@ -63,8 +79,7 @@ const ShowDetails = (props) => {
                     <Card.Text className="text-muted">
                         Show Status: {show.status}
                     </Card.Text>
-                    {/*//TODO: Add pagination to seasons accordion */}
-                    <UserRowIcons {...props} />
+                    <UserRowIcons {...props} {...userRelationship} />
                     <ShowSeasons show={show} /> {/*//TODO: Add pagination to seasons accordion */}
                 </Card.Body>
                 </Col>
