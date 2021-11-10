@@ -6,13 +6,12 @@ const FavoriteIcon = (props) => {
     const newFavorite = async () => {
         try {
             const jwt = localStorage.getItem("token")
-            const addFavorite = {
+            await axios.post("http://loclahost:8000/api/show/watched/add", {
                 tv_show_id: props.show.id,
                 is_favorite: true,
                 liked_show: true,
                 tv_show_data: props.show
-            }
-            await axios.post("http://loclahost:8000/api/show/watched/add", addFavorite, {
+            }, {
                 headers: { Authorization: `Bearer ${jwt}`}
             })
             props.getWatchedShows() 
@@ -27,14 +26,15 @@ const FavoriteIcon = (props) => {
             id: props.show.databaseID,
             is_favorite: !props.isFavorite
         }
-        await axios.patch("http://127.0.0.1:8000/api/show/favorites/update", update, {
+        await axios.patch("http://127.0.0.1:8000/api/show/favorites/update", 
+        {
+            id: props.show.databaseID,
+            is_favorite: !props.isFavorite
+        }, {
             headers: { Authorization: `Bearer ${jwt}`}
         })
         props.getWatchedShows()
     }
-
-
-
 
     const handleClick = () => {
         if (props.watchedShow) {
@@ -43,9 +43,6 @@ const FavoriteIcon = (props) => {
             newFavorite()
         }
     }
-    
-
-
 
     return (
         <MDBBtn 
