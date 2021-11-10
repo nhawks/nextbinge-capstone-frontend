@@ -70,7 +70,7 @@ const CommentForm = (props) => {
                 <Col>
                     <Form.Group controlId="messageValidation">
                         <FloatingLabel 
-                            label={`What did you like or dislike about ${props.show.name}?`}>
+                            label={`Comment on ${props.show.name}...`}>
                             <FormControl 
                                 type="text"
                                 placeholder="Discussion"

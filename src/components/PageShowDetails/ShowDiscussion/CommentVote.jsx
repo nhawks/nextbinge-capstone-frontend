@@ -20,12 +20,10 @@ const CommentVote = ({ vote, commentID, commentVotes, getDiscussion }) => {
         <MDBTooltip 
             tag="text" 
             placement="bottom" 
-            title={`${vote === "thumbs-up" ? "Like" : "Dislike"}`}
+            title={`${vote === "thumb_up" ? "Like" : "Dislike"}`}
         >
             <a className='mx-3' href='#!' onClick={submitVote}>
-                <i className={`text-light me-2`}>
-                    <span class="material-icons">{vote}</span>
-                </i>
+                    <span class="material-icons me-2 text-white">{vote}</span>
                 <MDBBadge 
                     color={`${vote === "thumb_up" ? "success" : "danger"}`} 
                     notification pill

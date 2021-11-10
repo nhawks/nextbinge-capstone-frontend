@@ -3,9 +3,11 @@ import axios from 'axios';
 import { TMDB_API_KEY } from '../../../keys';
 
 import ShowSeasons from '../ShowSeasons/ShowSeasons';
+import ShowDiscussion from '../ShowDiscussion/ShowDiscussion';
+import UserRowIcons from '../UserRowIcons/UserRowIcons';
 
 import { Card, Row, Col, Spinner} from 'react-bootstrap';
-import ShowDiscussion from '../ShowDiscussion/ShowDiscussion';
+
 
 
 const ShowDetails = (props) => {
@@ -52,19 +54,18 @@ const ShowDetails = (props) => {
                 <Col md="8">
                 <Card.Body>
                     <Card.Title>{show.name} ({show.first_air_date.slice(0, 4)})</Card.Title>
+                    <Card.Text className="text-muted">
+                        {show.tagline}
+                    </Card.Text>
                     <Card.Text className="text-start lh-lg">
                         {show.overview}
-                    </Card.Text>
-                    <Card.Text className="lh-lg">
-                        Number of seasons: {show.number_of_seasons}
-                        <br />
-                        Number of Episodes: {show.number_of_episodes}
                     </Card.Text>
                     <Card.Text className="text-muted">
                         Show Status: {show.status}
                     </Card.Text>
                     {/*//TODO: Add pagination to seasons accordion */}
-                    <ShowSeasons show={show} />
+                    <UserRowIcons {...props} />
+                    <ShowSeasons show={show} /> {/*//TODO: Add pagination to seasons accordion */}
                 </Card.Body>
                 </Col>
             </Row>
