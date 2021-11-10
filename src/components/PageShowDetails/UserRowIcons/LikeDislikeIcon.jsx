@@ -3,10 +3,20 @@ import { MDBBtn } from "mdb-react-ui-kit"
 const LikeDislikeIcon = (props) => {
     return (
         <>
-        <MDBBtn floating size="lg" className="mx-2"> 
+        <MDBBtn 
+            floating 
+            size="lg" 
+            className="mx-2"
+            color={props.likedShow ? "primary" : "dark"}
+        > 
             <span class="material-icons">thumb_up</span>
         </MDBBtn>
-        <MDBBtn floating size="lg" className="mx-2"> 
+        <MDBBtn 
+            floating 
+            size="lg" 
+            className="mx-2"
+            color={!props.likedShow && !props.likedShow === null ? "primary" : "dark"}
+        > 
             <span class="material-icons">thumb_down</span>
         </MDBBtn>
         </>
