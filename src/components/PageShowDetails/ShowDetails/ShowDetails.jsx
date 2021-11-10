@@ -81,7 +81,12 @@ const ShowDetails = (props) => {
                     <Card.Text className="text-muted">
                         Show Status: {show.status}
                     </Card.Text>
-                    <UserRowIcons {...props} {...userRelationship} show={userRelationship.watchedShow ? userRelationship : show} />
+                    <UserRowIcons
+                        // TODO: Add toast notifications.
+                        {...props} 
+                        {...userRelationship} 
+                        show={userRelationship.watchedShow ? userRelationship : show} 
+                    />
                     <ShowSeasons show={show} /> {/*//TODO: Add pagination to seasons accordion */}
                 </Card.Body>
                 </Col>

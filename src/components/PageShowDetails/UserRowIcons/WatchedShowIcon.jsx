@@ -8,7 +8,7 @@ const WatchedShowIcon = (props) => {
             color={props.watchedShow ? "primary" : "dark"}
             disabled={props.watchedShow ? true : false}
         > 
-            <i className="bi bi-eye-fill"></i>
+            <i class={`fas fa-lg ${props.watchedShow ? "fa-eye" : "fa-eye-slash" }`}></i>
         </MDBBtn>
     )
 }

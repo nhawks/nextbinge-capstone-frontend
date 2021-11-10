@@ -54,7 +54,7 @@ const FavoriteIcon = (props) => {
             onClick={handleClick}
             
         > 
-            <i className="bi bi-heart-fill"></i>
+            <i class="fas fa-heart fa-lg"></i>
         </MDBBtn>
     )
 }
