@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MDBBtn } from "mdb-react-ui-kit"
 import { Button, Modal } from 'react-bootstrap';
-
+import './UserRowIcons.css'
 
 const PlayTrailerIcon = (props) => {
 
@@ -20,9 +20,10 @@ const PlayTrailerIcon = (props) => {
         </MDBBtn>
 
             <Modal
-            size="xl"
+            size="lg"
             show={showModal}
             onHide={() => setShowModal(false)}
+            centered
         >
             <Modal.Header closeButton>
             <Modal.Title>
@@ -30,7 +31,16 @@ const PlayTrailerIcon = (props) => {
             </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {/*//TODO: YouTube Video Player here */}
+            <div className="video-container">
+
+            <iframe 
+                src={`https://www.youtube.com/embed/${props.show.videos.results[0].key}?autoplay=1`} 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            >
+            </iframe>
+            </div>
             </Modal.Body>
         </Modal>
         </>

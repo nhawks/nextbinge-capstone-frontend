@@ -28,7 +28,8 @@ const ShowDetails = (props) => {
                 const response = await axios.get(`https://api.themoviedb.org/3/tv/${props.showID}`,
                 {params: {
                     api_key: TMDB_API_KEY,
-                    language: "en-US"
+                    language: "en-US",
+                    append_to_response: "videos"
                 }})
                 if (userWatchedShow) {
                     setUserRelationship(prevState => ({
