@@ -24,7 +24,9 @@ class App extends Component {
     auth: null,
     // tv show
     showID: null,
-    watchedShows: null,
+    imdbRating: null,
+    streamingProviders: [],
+    watchedShows: [],
     watchlist: []
   };
 
@@ -130,7 +132,32 @@ class App extends Component {
     this.setState({
       showID: ID
     });
+    this.getShowData(ID)
   };
+
+  //? GET TV RATING AND STREAMING PROVIDERS
+  getShowData = async (ID) => {
+    try {
+      const config = {
+        headers: {
+          "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
+          "x-rapidapi-key": RAPID_API_KEY
+        },
+        params: {
+          tmdb_id: `tv/${ID}`,
+          country: "us",
+          output_language: "en"
+        }
+      }
+      const response = await axios.get("https://streaming-availability.p.rapidapi.com/get/basic", config)
+      this.setState({
+        imdbRating: response.data.imdbRating,
+        streamingProviders: response.data.streamingInfo
+      })
+    } catch(err) {
+      console.log("🚀 ~ file: App.jsx ~ line 155 ~ App ~ getShowData= ~ err", err)
+    }
+  }
   
   //? GET WATCHED SHOWS:
   getWatchedShows = async () => {
@@ -174,10 +201,19 @@ class App extends Component {
       register: this.registerUser,
       getUser: this.getUserDetails,
     };
-    const showFunctions = { setShowID: this.setShowID, getWatchedShows: this.getWatchedShows, getWatchlist: this.getWatchlist };
-    const showData = { showID: this.state.showID, watchedShows: this.state.watchedShows, watchlist: this.state.watchlist };
-    // const userFunctions = {setUser: this.setUser}
-    // const user = this.state.user
+    const showFunctions = { 
+      setShowID: this.setShowID, 
+      getWatchedShows: this.getWatchedShows, 
+      getWatchlist: this.getWatchlist 
+    };
+    const showData = { 
+      showID: this.state.showID, 
+      watchedShows: this.state.watchedShows, 
+      watchlist: this.state.watchlist, 
+      imdbRating: this.state.imdbRating, 
+      streamingProviders: this.state.streamingProviders 
+    };
+    
     return (
       <div>
         <NavBar {...current} {...access} setUser={this.setUser} />
