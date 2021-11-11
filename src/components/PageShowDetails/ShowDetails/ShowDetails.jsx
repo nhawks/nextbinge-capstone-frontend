@@ -7,6 +7,7 @@ import ShowDiscussion from '../ShowDiscussion/ShowDiscussion';
 import UserRowIcons from '../UserRowIcons/UserRowIcons';
 
 import { Card, Row, Col, Spinner} from 'react-bootstrap';
+import StreamingProviderRow from '../StreamingProviderRow/StreamingProviderRow';
 
 
 
@@ -96,9 +97,7 @@ const ShowDetails = (props) => {
                     <Card.Text className="text-start lh-lg">
                         {show.overview}
                     </Card.Text>
-                    <Card.Text className="text-muted">
-                        Show Status: {show.status}
-                    </Card.Text>
+                    <StreamingProviderRow {...props} />
                     <UserRowIcons
                         // TODO: Add toast notifications.
                         {...props} 
