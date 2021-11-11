@@ -24,7 +24,8 @@ class App extends Component {
     auth: null,
     // tv show
     showID: null,
-    watchedShows: null
+    watchedShows: null,
+    watchlist: []
   };
 
   componentDidMount() {
@@ -36,6 +37,7 @@ class App extends Component {
         auth: jwtToken,
       });
       this.getWatchedShows()
+      this.getWatchlist()
     } catch (err) {
       console.log(
         "🚀 ~ file: App.jsx ~ line 21 ~ App ~ componentDidMount ~ err",
@@ -130,7 +132,6 @@ class App extends Component {
     });
   };
   
-  // TODO: GET USER WATCHED SHOWS:
   //? GET WATCHED SHOWS:
   getWatchedShows = async () => {
     try {
@@ -140,6 +141,21 @@ class App extends Component {
       })
       this.setState({
         watchedShows: response.data
+      })
+    } catch(err) {
+      console.log("🚀 ~ file: App.jsx ~ line 145 ~ App ~ getWatchedShows= ~ err", err)
+    }
+  }
+
+  //? GET WATCHLIST:
+  getWatchlist = async () => {
+    try {
+      const jwt = localStorage.getItem('token')
+      const response = await axios.get("http://localhost:8000/api/show/watchlist/", {
+        headers: { Authorization: `Bearer ${jwt}`} 
+      })
+      this.setState({
+        watchlist: response.data
       })
     } catch(err) {
       console.log("🚀 ~ file: App.jsx ~ line 145 ~ App ~ getWatchedShows= ~ err", err)
@@ -158,8 +174,8 @@ class App extends Component {
       register: this.registerUser,
       getUser: this.getUserDetails,
     };
-    const showFunctions = { setShowID: this.setShowID, getWatchedShows: this.getWatchedShows };
-    const showData = { showID: this.state.showID, watchedShows: this.state.watchedShows };
+    const showFunctions = { setShowID: this.setShowID, getWatchedShows: this.getWatchedShows, getWatchlist: this.getWatchlist };
+    const showData = { showID: this.state.showID, watchedShows: this.state.watchedShows, watchlist: this.state.watchlist };
     // const userFunctions = {setUser: this.setUser}
     // const user = this.state.user
     return (
