@@ -17,10 +17,7 @@ const UserRowIcons = (props) => {
                     <ViewerScoreIcon {...props} />
                 </Col>
             </Row>
-            <Row className="mb-5 justify-content-center row row-cols-auto gy-3">
-                {/* <Col>
-                    <ViewerScoreIcon {...props} />
-                </Col> */}
+            <Row className="mb-4 justify-content-center row row-cols-auto gy-3">
                 <Col>
                     <WatchListIcon {...props} />
                 </Col>
