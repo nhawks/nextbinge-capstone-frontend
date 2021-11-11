@@ -1,5 +1,7 @@
 import axios from "axios"
-import { MDBBtn } from "mdb-react-ui-kit"
+import { MDBBtn, MDBTooltip } from "mdb-react-ui-kit"
+
+import "./UserRowIcons.css"
 
 const LikeDislikeIcon = (props) => {
 
@@ -20,16 +22,27 @@ const LikeDislikeIcon = (props) => {
 
     return (
         <>
+        <MDBTooltip 
+            tag="text" 
+            placement="bottom" 
+            title={props.likedShow ? "Liked" : "Like?"}
+        >
         <MDBBtn 
             floating 
             size="lg" 
-            className="mx-2"
+            className="mx-2 rowIcon"
             color={props.likedShow ? "primary" : "dark"}
             disabled={!props.watchedShow}
             onClick={handleClick}
         > 
             <span class="material-icons">thumb_up</span>
         </MDBBtn>
+        </MDBTooltip>
+        <MDBTooltip 
+            tag="text" 
+            placement="bottom" 
+            title={props.likedShow ? "Dislike?" : "Disliked"}
+        >
         <MDBBtn 
             floating 
             size="lg" 
@@ -40,6 +53,7 @@ const LikeDislikeIcon = (props) => {
         > 
             <span class="material-icons">thumb_down</span>
         </MDBBtn>
+        </MDBTooltip>
         <br />
         {!props.watchedShow && 
             <p className="text-muted mt-2">

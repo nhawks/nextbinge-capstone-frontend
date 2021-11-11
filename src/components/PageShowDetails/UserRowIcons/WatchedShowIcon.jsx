@@ -1,5 +1,5 @@
 import axios from "axios"
-import { MDBBtn } from "mdb-react-ui-kit"
+import { MDBBtn, MDBTooltip } from "mdb-react-ui-kit"
 
 
 const WatchedShowIcon = (props) => {
@@ -23,15 +23,21 @@ const WatchedShowIcon = (props) => {
     }
 
     return (
-        <MDBBtn 
-            floating size="lg" 
-            className="mx-2" 
-            color={props.watchedShow ? "primary" : "dark"}
-            disabled={props.watchedShow ? true : false}
-            onClick={handleClick}
-        > 
-            <i class={`fas fa-lg ${props.watchedShow ? "fa-eye" : "fa-eye-slash" }`}></i>
-        </MDBBtn>
+        <MDBTooltip 
+            tag="text" 
+            placement="bottom" 
+            title={props.watchedShow ? "Watched" : "Watched?"}
+        >
+            <MDBBtn 
+                floating size="lg" 
+                className="mx-2" 
+                color={props.watchedShow ? "primary" : "dark"}
+                disabled={props.watchedShow ? true : false}
+                onClick={handleClick}
+            > 
+                <i class={`fas fa-lg ${props.watchedShow ? "fa-eye" : "fa-eye-slash" }`}></i>
+            </MDBBtn>
+        </MDBTooltip>
     )
 }
 

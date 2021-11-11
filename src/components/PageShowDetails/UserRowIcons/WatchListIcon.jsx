@@ -1,5 +1,5 @@
 import axios from "axios"
-import { MDBBtn } from "mdb-react-ui-kit"
+import { MDBBtn, MDBTooltip } from "mdb-react-ui-kit"
 
 
 const WatchListIcon = (props) => {
@@ -44,15 +44,21 @@ const WatchListIcon = (props) => {
     }
     
     return (
+        <MDBTooltip 
+            tag="text" 
+            placement="bottom" 
+            title={props.inWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
+        >
+            <MDBBtn 
+                floating size="lg" 
+                className="mx-2" 
+                color={props.inWatchlist ? "primary" : "dark"}
+                onClick={handleClick}
+            > 
+                <i class="fas fa-bookmark fa-lg"></i>
+            </MDBBtn>
+        </MDBTooltip>
         
-        <MDBBtn 
-            floating size="lg" 
-            className="mx-2" 
-            color={props.inWatchlist ? "primary" : "dark"}
-            onClick={handleClick}
-        > 
-            <i class="fas fa-bookmark fa-lg"></i>
-        </MDBBtn>
     )
 }
 

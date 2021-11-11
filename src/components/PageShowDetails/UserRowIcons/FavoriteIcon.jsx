@@ -1,5 +1,5 @@
 import axios from "axios"
-import { MDBBtn } from "mdb-react-ui-kit"
+import { MDBBtn, MDBTooltip } from "mdb-react-ui-kit"
 
 const FavoriteIcon = (props) => {
 
@@ -46,16 +46,22 @@ const FavoriteIcon = (props) => {
     }
 
     return (
-        <MDBBtn 
-            floating 
-            size="lg" 
-            className="mx-2"
-            color={props.isFavorite ? "primary" : "dark"}
-            onClick={handleClick}
-            
-        > 
-            <i class="fas fa-heart fa-lg"></i>
-        </MDBBtn>
+        <MDBTooltip 
+            tag="text" 
+            placement="bottom" 
+            title={props.isFavorite ? "Remove from favorites" : "Add to favorites"}
+        >
+            <MDBBtn 
+                floating 
+                size="lg" 
+                className="mx-2"
+                color={props.isFavorite ? "primary" : "dark"}
+                onClick={handleClick}
+                
+            > 
+                <i class="fas fa-heart fa-lg"></i>
+            </MDBBtn>
+        </MDBTooltip>
     )
 }
 
