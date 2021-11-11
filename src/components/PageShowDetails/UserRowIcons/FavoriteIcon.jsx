@@ -26,7 +26,7 @@ const FavoriteIcon = (props) => {
             const jwt = localStorage.getItem("token")
             await axios.patch("http://localhost:8000/api/show/favorites/update", 
             {
-                id: props.show.databaseID,
+                id: props.watchedShowID,
                 is_favorite: !props.isFavorite
             }, {
                 headers: { Authorization: `Bearer ${jwt}`}

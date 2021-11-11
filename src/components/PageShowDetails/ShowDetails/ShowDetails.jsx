@@ -14,10 +14,12 @@ const ShowDetails = (props) => {
     const [isLoading, setLoading] = useState(true)
     const [show, setShow] = useState(props.show);
     const [userRelationship, setUserRelationship] = useState({
-        databaseID: null,
+        watchedShowID: null,
         isFavorite: false,
         likedShow: null,
         watchedShow: false,
+        watchlistID: null,
+        inWatchlist: false
     });
 
     useEffect(() => {
@@ -28,14 +30,28 @@ const ShowDetails = (props) => {
                     api_key: TMDB_API_KEY,
                     language: "en-US"
                 }})
-                if (showHasUserInput) {
-                    setUserRelationship({
-                        databaseID: showHasUserInput.id,
-                        isFavorite: showHasUserInput.is_favorite,
-                        likedShow: showHasUserInput.liked_show,
+                if (userWatchedShow) {
+                    setUserRelationship(prevState => ({
+                        ...prevState,
+                        watchedShowID: userWatchedShow.id,
+                        isFavorite: userWatchedShow.is_favorite,
+                        likedShow: userWatchedShow.liked_show,
                         watchedShow: true,
-                    })
+                    }))
                 }
+                if (showInUserWatchlist) {
+                    setUserRelationship(prevState => ({
+                        ...prevState,
+                        watchlistID: showInUserWatchlist.id,
+                        inWatchlist: true
+                    }))
+                } else {
+                    setUserRelationship(prevState => ({
+                        ...prevState,
+                        inWatchlist: false
+                    }))
+                }
+                
                 setShow(response.data)
                 setLoading(false)
             }
@@ -47,9 +63,10 @@ const ShowDetails = (props) => {
         }
 
         
-    }, [props.watchedShows]);
+    }, [props.watchedShows, props.watchlist]);
 
-    const showHasUserInput = props.watchedShows.find(show => show.tv_show_id === props.showID)
+    const userWatchedShow = props.watchedShows.find(show => show.tv_show_id === props.showID)
+    const showInUserWatchlist = props.watchlist.find(show => show.tv_show_id === props.showID)
 
     if (isLoading) {
         return (
@@ -85,7 +102,7 @@ const ShowDetails = (props) => {
                         // TODO: Add toast notifications.
                         {...props} 
                         {...userRelationship} 
-                        show={userRelationship.watchedShow ? userRelationship : show} 
+                        show={show} 
                     />
                     <ShowSeasons show={show} /> {/*//TODO: Add pagination to seasons accordion */}
                 </Card.Body>

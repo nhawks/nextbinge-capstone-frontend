@@ -8,7 +8,7 @@ const LikeDislikeIcon = (props) => {
             const jwt = localStorage.getItem('token')
             const vote = props.likedShow ? "thumbs_down" : "thumbs_up"
             await axios.patch(`http://127.0.0.1:8000/api/show/${vote}`, {
-                id: props.show.databaseID
+                id: props.watchedShowID
             }, {
                 headers: { Authorization: `Bearer ${jwt}`}
             })
