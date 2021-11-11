@@ -12,9 +12,11 @@ function Comments (props) {
     return ( 
         <div className = "row">
             <div className = "col-md-12">
-                <h5 className="text-start p-2">
-                    {userComments ? "See what others have to say!" : "Start the conversation!"}
-                </h5>
+                {userComments.length !== 0 &&
+                    <h5 className="text-start p-2">
+                        See what others have to say!
+                    </h5>
+                }
                 {userComments.map((comment) => {
                     return (
                         <>   

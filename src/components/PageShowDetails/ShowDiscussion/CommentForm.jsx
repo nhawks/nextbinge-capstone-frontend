@@ -59,7 +59,7 @@ const CommentForm = (props) => {
     return ( 
         <Row className="g-2 mb-5">
             <h5 className="text-start p-2">
-                {props.hasDiscussion ? "Join the conversation!": "Be the first to start the discussion!"}
+                {props.hasDiscussion ? "Join the conversation!": "Start the conversation!"}
             </h5>
             <Form 
                 className="d-flex" 

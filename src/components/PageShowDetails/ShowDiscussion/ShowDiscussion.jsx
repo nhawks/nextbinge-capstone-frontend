@@ -46,7 +46,7 @@ function ShowDiscussion(props) {
                             <>
                                 <CommentForm 
                                     {...props} 
-                                    hasDiscussion={discussion ? true : false} 
+                                    hasDiscussion={discussion[0].length !== 0 ? true : false} 
                                     getDiscussion={getDiscussion} 
                                 />
                                 <Card>
