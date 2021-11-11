@@ -27,11 +27,13 @@ const StreamingProviderRow = (props) => {
                             style={{ backgroundColor: buttonData[provider].color  }}
                         >
                             {buttonData[provider].name}
+                            <i class="fas fa-external-link-alt ms-1"></i>
                         </Button>
                     }
                     {!(provider in buttonData) &&
                         <Button onClick={() => window.open(props.streamingProviders[provider].us.link, "_blank")}>
                             {provider}
+                            <i class="fas fa-external-link-alt ms-1"></i>
                         </Button>
                     }
                 </Col>
