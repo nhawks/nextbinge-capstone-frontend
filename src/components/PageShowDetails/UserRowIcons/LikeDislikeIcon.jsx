@@ -54,12 +54,6 @@ const LikeDislikeIcon = (props) => {
             <span class="material-icons">thumb_down</span>
         </MDBBtn>
         </MDBTooltip>
-        <br />
-        {!props.watchedShow && 
-            <p className="text-muted mt-2">
-                Please mark the show as watched to vote.
-            </p>
-        }
         </>
     )
 }
