@@ -12,10 +12,15 @@ import PlayTrailerIcon from './PlayTrailerIcon';
 const UserRowIcons = (props) => {
     return (
         <>
-            <Row className="mb-5 justify-content-center row row-cols-auto gy-3">
-                <Col>
+            <Row className="justify-content-center mb-3">
+                <Col className="col-md-6">
                     <ViewerScoreIcon {...props} />
                 </Col>
+            </Row>
+            <Row className="mb-5 justify-content-center row row-cols-auto gy-3">
+                {/* <Col>
+                    <ViewerScoreIcon {...props} />
+                </Col> */}
                 <Col>
                     <WatchListIcon {...props} />
                 </Col>
