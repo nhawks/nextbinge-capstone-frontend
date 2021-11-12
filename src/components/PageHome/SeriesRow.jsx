@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import { Image } from 'react-bootstrap';
 import "../../../node_modules/slick-carousel/slick/slick.css"
 import "../../../node_modules/slick-carousel/slick/slick-theme.css"
 
-function SeriesRow({ title, requestURL}) {
+
+function SeriesRow({ title, requestURL, setShowID }) {
     const baseURL = "https://api.themoviedb.org/3/"
     const imageURL = "https://image.tmdb.org/t/p/w500/"
     const [series, setSeries] = useState([]);
@@ -24,7 +26,8 @@ function SeriesRow({ title, requestURL}) {
     }, [requestURL]);
 
     const settings = {
-        dots: false,
+        dots: true,
+        arrows: false,
         infinite: false,
         speed: 500,
         slidesToShow: 7,
@@ -59,11 +62,12 @@ function SeriesRow({ title, requestURL}) {
       };
 
     return ( 
-        <div>
-            <h2>{title}</h2>
+        <div className="mb-4">
+            <h4 className="text-muted">{title}</h4>
             <Slider {...settings}>
                 {series.map((show) => (
                     <div>
+                        <Link to="/show-details" onClick={() => setShowID(show.id)} >
                         <Image
                             className="hover-shadow mask-overlay"
                             key={show.id}
@@ -71,8 +75,9 @@ function SeriesRow({ title, requestURL}) {
                             alt={show.name}
                             fluid
                             rounded
-                            style={{ Width: '60rem', maxHeight: "200px" }}
+                            style={{ maxHeight: "250px" }}
                         />
+                        </Link>
                     </div>
                 ))}
             </Slider>
