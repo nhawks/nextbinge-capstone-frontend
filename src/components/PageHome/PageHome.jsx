@@ -4,13 +4,13 @@ import SeriesRow from './SeriesRow';
 
 const PageHome = (props) => {
     return (
-        <div className="container-fluid col-11" >
-            <SeriesRow title="Trending" requestURL={RowRequest.getTrending} />
-            <SeriesRow title="Action" requestURL={RowRequest.getAction} />
-            <SeriesRow title="Comedy" requestURL={RowRequest.getComedy} />
-            <SeriesRow title="Sci-Fi & Fantasy" requestURL={RowRequest.getSciFantasy} />
-            <SeriesRow title="Drama" requestURL={RowRequest.getDrama} />
-            <SeriesRow title="Reality" requestURL={RowRequest.getReality} />
+        <div className="container-fluid col-11 mt-4" >
+            <SeriesRow title="Trending" requestURL={RowRequest.getTrending} {...props} />
+            <SeriesRow title="Action" requestURL={RowRequest.getAction} {...props} />
+            <SeriesRow title="Comedy" requestURL={RowRequest.getComedy} {...props} />
+            <SeriesRow title="Sci-Fi & Fantasy" requestURL={RowRequest.getSciFantasy} {...props} />
+            <SeriesRow title="Drama" requestURL={RowRequest.getDrama} {...props} />
+            <SeriesRow title="Reality" requestURL={RowRequest.getReality} {...props} />
         </div>
     )
 
