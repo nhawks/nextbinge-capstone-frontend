@@ -9,8 +9,10 @@ const NavBar = (props) => {
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container fluid>
             <Navbar.Brand>
-                <Link to="/home" className="nav-link">
-                    <i className="fas fa-tv"></i>
+                <Link to="/home" className="nav-link text-white">
+                    <button type="button" className="btn btn-primary btn-floating btn-sm me-1">
+                    <i className="fas fa-couch fa-lg"></i>
+                    </button>
                     NextBinge
                 </Link>
             </Navbar.Brand>
@@ -21,7 +23,7 @@ const NavBar = (props) => {
                 <Nav>
                     {!props.auth &&
                         <Link to="/access" className="nav-link">
-                            <i className="bi bi-person-workspace"></i>
+                            <i className="me-1 bi bi-box-arrow-in-right"></i>
                                 Login/Register
                         </Link>
                     }
@@ -29,33 +31,33 @@ const NavBar = (props) => {
                         <React.Fragment>
                             <Nav.Link>
                                 <Link to="/home" className="nav-link">
-                                    <i className="bi bi-house-fill"></i>
+                                    <i className="me-1 bi bi-house-fill"></i>
                                         Home
                                 </Link>
                             </Nav.Link>
 
                             <Nav.Link>
                                 <Link to="/search" className="nav-link">
-                                    <i className="bi bi-tv-fill"></i>
+                                    <i className="me-1 bi bi-search"></i>
                                         Search
                                 </Link>
                             </Nav.Link>
 
                             <Nav.Link>
                                 <Link to="/watchlist" className="nav-link">
-                                    <i className="bi bi-person-circle"></i>
-                                        My Watchlist
+                                    <i className="me-1 bi bi-collection-play-fill"></i>
+                                    My Watchlist
                                 </Link>
                             </Nav.Link>
                             <Nav.Link>
                                 <Link to="/account" className="nav-link">
-                                    <i className="bi bi-person-circle"></i>
+                                    <i className="me-1 bi bi-person-circle"></i>
                                         My Account
                                 </Link>
                             </Nav.Link>
                             <Nav.Link onClick={props.logout}>
                                 <Link className="nav-link">
-                                    <i className="bi bi-box-arrow-right"></i>
+                                    <i className="me-1 bi bi-box-arrow-right"></i>
                                         Logout
                                 </Link>
                             </Nav.Link>
