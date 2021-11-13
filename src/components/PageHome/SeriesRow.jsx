@@ -64,6 +64,7 @@ function SeriesRow({ title, requestURL, setShowID }) {
     return ( 
         <div className="mb-4">
             <h4 className="text-muted">{title}</h4>
+            <hr />
             <Slider {...settings}>
                 {series.map((show) => (
                     <div>
