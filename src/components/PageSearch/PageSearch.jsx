@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import { Card, FloatingLabel, Form, Spinner, Row } from 'react-bootstrap';
+import { Card, FloatingLabel, Form, Spinner, Row, Col } from 'react-bootstrap';
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { genres } from './GenreList';
 import axios from 'axios';
@@ -45,7 +45,7 @@ const PageSearch = (props) => {
 
     return (
         <div className="row justify-content-center mt-4">
-            <div className="col-2" align="center">
+            <Col xs={12} md={3} align="center" className="mb-4">
                 <Card>
                     <Card.Header>Search By</Card.Header>
                     <Card.Body>
@@ -107,8 +107,8 @@ const PageSearch = (props) => {
                     )}
                     </Form>
                 </Card>
-            </div>
-            <div className="col-8">
+            </Col>
+            <Col xs={12} md={8} align="center">
                 <Card>
                     <Card.Header>Search Results</Card.Header>
                     <Card.Body>
@@ -136,7 +136,7 @@ const PageSearch = (props) => {
                     
                     </Card.Body>
                 </Card>
-            </div>
+            </Col>
         </div>
     )
 }
