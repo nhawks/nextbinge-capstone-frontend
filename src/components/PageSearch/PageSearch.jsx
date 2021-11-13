@@ -123,7 +123,7 @@ const PageSearch = (props) => {
                     {!loading && (
                         searchResults.map((show) => (
                             <Link to="/show-details" onClick={() => props.setShowID(show.id)} >
-                            <Card style={{ width: '250px' }} className="me-4">
+                            <Card style={{ width: '250px' }} className="me-4" key={show.id}>
                             <Card.Img variant="top" src={`${imageURL}${show.poster_path}`} />
                             <Card.Body>
                                 <Card.Title>{show.name}</Card.Title>
