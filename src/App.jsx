@@ -16,6 +16,7 @@ import PageShowDetails from "./components/PageShowDetails/PageShowDetails";
 
 // Styling
 import "./App.css";
+import PageWatchlist from "./components/PageWatchlist/PageWatchlist";
 
 class App extends Component {
   state = {
@@ -220,8 +221,8 @@ class App extends Component {
         <Switch>
           {/*//? If user is logged in redirect to home else to access*/}
           <Route
-            path="/"
             exact
+            path="/"
             render={() => {
               if (current.auth) {
                 return <Redirect to="/home" />;
@@ -291,6 +292,25 @@ class App extends Component {
               } else {
                 return (
                   <PageShowDetails
+                    {...props}
+                    {...showData}
+                    {...showFunctions}
+                    username={current.user.username}
+                  />
+                );
+              }
+            }}
+          />
+
+          {/*//? Watchlist - Users Only */}
+          <Route
+            path="/watchlist"
+            render={(props) => {
+              if (!current.auth) {
+                return <Redirect to="/access" />;
+              } else {
+                return (
+                  <PageWatchlist
                     {...props}
                     {...showData}
                     {...showFunctions}

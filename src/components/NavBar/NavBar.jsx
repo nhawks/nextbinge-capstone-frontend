@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-
+import { MDBPagination, MDBPaginationItem } from 'mdb-react-ui-kit';
 
 const NavBar = (props) => {
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Container>
-            <Navbar.Brand href="#home">
+            <Container fluid>
+            <Navbar.Brand>
                 <Link to="/home" className="nav-link">
-                    <i class="fas fa-tv"></i>
+                    <i className="fas fa-tv"></i>
                     NextBinge
                 </Link>
             </Navbar.Brand>
@@ -41,6 +41,12 @@ const NavBar = (props) => {
                                 </Link>
                             </Nav.Link>
 
+                            <Nav.Link>
+                                <Link to="/watchlist" className="nav-link">
+                                    <i className="bi bi-person-circle"></i>
+                                        My Watchlist
+                                </Link>
+                            </Nav.Link>
                             <Nav.Link>
                                 <Link to="/account" className="nav-link">
                                     <i className="bi bi-person-circle"></i>
