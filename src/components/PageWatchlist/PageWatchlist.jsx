@@ -36,7 +36,6 @@ function PageWatchlist(props) {
                         <Card.Img variant="top" src={`${imageURL}${show.tv_show_data.poster_path}`} />
                         </Link>
                         <Card.Body>
-                            {/* <Card.Title>{show.tv_show_data.name}</Card.Title> */}
                             <MDBBtn rounded onClick={() => removeFromWatchlist(show.id)}>
                                 Remove
                             </MDBBtn>
