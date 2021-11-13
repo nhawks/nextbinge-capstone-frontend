@@ -122,6 +122,7 @@ const PageSearch = (props) => {
                     <Row xs={1} md={3} className="g-4 justify-content-center">
                     {!loading && (
                         searchResults.map((show) => (
+                            <Link to="/show-details" onClick={() => props.setShowID(show.id)} >
                             <Card style={{ width: '250px' }} className="me-4">
                             <Card.Img variant="top" src={`${imageURL}${show.poster_path}`} />
                             <Card.Body>
@@ -130,6 +131,7 @@ const PageSearch = (props) => {
                                 </Card.Text>
                             </Card.Body>
                             </Card>
+                            </Link>
                         ))
                     )}
                     </Row>
