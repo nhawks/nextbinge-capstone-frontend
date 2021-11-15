@@ -46,7 +46,7 @@ function AccountFavorites(props) {
                     }
                 })
                 .map((show) => (
-                    <div className="text-center">
+                    <div className="col col-11">
                         <Card style={{ width: '180px' }} className="me-2" key={show.tv_show_id}>
                         <Link to="/show-details" onClick={() => props.setShowID(show.tv_show_id)} >
                         <Card.Img variant="top" src={`${imageURL}${show.tv_show_data.poster_path}`} rounded />
