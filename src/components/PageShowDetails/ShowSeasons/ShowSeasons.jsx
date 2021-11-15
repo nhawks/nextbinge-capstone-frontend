@@ -20,7 +20,7 @@ const ShowSeasons = ({ show }) => {
                 </Accordion.Header>
                 <Accordion.Body>
                     <ListGroup>
-                    {seasons.map(season => (
+                    {seasons.filter(season => season.season_number !== 0).map(season => (
                         <ListGroupItem className="mt-2">
                             <Row className="g-0">
                                 <Col md="3" className="me-4">
