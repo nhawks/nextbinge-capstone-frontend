@@ -268,7 +268,7 @@ class App extends Component {
               if (!current.auth) {
                 return <Redirect to="/access" />;
               } else {
-                return <PageAccount {...props} {...current} {...showData} />;
+                return <PageAccount {...props} {...current} {...showData} {...showFunctions} />;
               }
             }}
           />
