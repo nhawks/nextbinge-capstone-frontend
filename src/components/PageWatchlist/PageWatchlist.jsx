@@ -26,7 +26,7 @@ function PageWatchlist(props) {
     return (
         <div className="container mt-4 mx-auto">
         <div className="mb-4">
-            <h4 className="text-muted">My Watchlist</h4>
+            <h4 className="text-muted text-center">My Watchlist</h4>
             <hr />
             <Row xs={2} md={4} lg={5} className="g-4">
                 {props.watchlist.map((show) => (
