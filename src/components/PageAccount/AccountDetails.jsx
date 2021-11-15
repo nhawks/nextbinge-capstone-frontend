@@ -20,7 +20,7 @@ const AccountDetails = ({ user }) => {
               type="button"
               color="primary"
               name={service}
-              className="me-2"
+              className="me-2 mb-2"
               rounded
             >
               {service}
