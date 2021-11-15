@@ -192,7 +192,7 @@ class App extends Component {
 
 
 
-  //*---------------------- RENDER/RETURN ----------------------
+  //*---------------------- RENDER ----------------------
 
   render() {
     const current = { user: this.state.user, auth: this.state.auth };
@@ -214,6 +214,8 @@ class App extends Component {
       imdbRating: this.state.imdbRating, 
       streamingProviders: this.state.streamingProviders 
     };
+
+  //*---------------------- RETURN ----------------------
     
     return (
       <div>
@@ -266,7 +268,7 @@ class App extends Component {
               if (!current.auth) {
                 return <Redirect to="/access" />;
               } else {
-                return <PageAccount {...props} />;
+                return <PageAccount {...props} {...current} {...showData} />;
               }
             }}
           />
