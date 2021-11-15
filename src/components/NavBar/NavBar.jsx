@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import { MDBPagination, MDBPaginationItem } from 'mdb-react-ui-kit';
 
 const NavBar = (props) => {
 
@@ -22,10 +21,16 @@ const NavBar = (props) => {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav>
                     {!props.auth &&
+                        <React.Fragment>
                         <Link to="/access" className="nav-link">
                             <i className="me-1 bi bi-box-arrow-in-right"></i>
                                 Login/Register
                         </Link>
+                         <Link to="/about" className="nav-link">
+                             <i className="me-1 bi bi-info-circle"></i>
+                                 About
+                         </Link>
+                     </React.Fragment>
                     }
                     {props.auth &&
                         <React.Fragment>
@@ -55,6 +60,12 @@ const NavBar = (props) => {
                                         My Account
                                 </Link>
                             </Nav.Link>
+                            <Nav.Link>
+                                <Link to="/about" className="nav-link">
+                                    <i className="me-1 bi bi-info-circle"></i>
+                                        About
+                                </Link>
+                            </Nav.Link>
                             <Nav.Link onClick={props.logout}>
                                 <Link className="nav-link">
                                     <i className="me-1 bi bi-box-arrow-right"></i>
@@ -63,6 +74,7 @@ const NavBar = (props) => {
                             </Nav.Link>
                         </React.Fragment>
                     }
+                   
                 </Nav>
             </Navbar.Collapse>
             </Container>

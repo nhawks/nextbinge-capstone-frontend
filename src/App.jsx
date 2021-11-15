@@ -17,6 +17,7 @@ import PageShowDetails from "./components/PageShowDetails/PageShowDetails";
 // Styling
 import "./App.css";
 import PageWatchlist from "./components/PageWatchlist/PageWatchlist";
+import PageAbout from "./components/PageAbout/PageAbout";
 
 class App extends Component {
   state = {
@@ -236,6 +237,8 @@ class App extends Component {
 
           {/*//? Not-Found Page - AllowAny */}
           <Route path="/not-found" component={PageNotFound} />
+
+          <Route path="/about" component={PageAbout} />
 
           {/*//? Access Page - AllowAny */}
           <Route
