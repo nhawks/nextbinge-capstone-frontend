@@ -36,44 +36,32 @@ const NavBar = (props) => {
             )}
             {props.auth && (
               <React.Fragment>
-                <Nav.Link>
-                  <Link to="/home" className="nav-link">
-                    <i className="me-1 bi bi-house-fill"></i>
-                    Home
-                  </Link>
-                </Nav.Link>
+                <Link to="/home" className="nav-link">
+                  <i className="me-1 bi bi-house-fill"></i>
+                  Home
+                </Link>
 
-                <Nav.Link>
-                  <Link to="/search" className="nav-link">
-                    <i className="me-1 bi bi-search"></i>
-                    Search
-                  </Link>
-                </Nav.Link>
+                <Link to="/search" className="nav-link">
+                  <i className="me-1 bi bi-search"></i>
+                  Search
+                </Link>
 
-                <Nav.Link>
-                  <Link to="/watchlist" className="nav-link">
-                    <i className="me-1 bi bi-collection-play-fill"></i>
-                    My Watchlist
-                  </Link>
-                </Nav.Link>
-                <Nav.Link>
-                  <Link to="/account" className="nav-link">
-                    <i className="me-1 bi bi-person-circle"></i>
-                    My Account
-                  </Link>
-                </Nav.Link>
-                <Nav.Link>
-                  <Link to="/about" className="nav-link">
-                    <i className="me-1 bi bi-info-circle"></i>
-                    About
-                  </Link>
-                </Nav.Link>
-                <Nav.Link onClick={props.logout}>
-                  <Link className="nav-link">
-                    <i className="me-1 bi bi-box-arrow-right"></i>
-                    Logout
-                  </Link>
-                </Nav.Link>
+                <Link to="/watchlist" className="nav-link">
+                  <i className="me-1 bi bi-collection-play-fill"></i>
+                  My Watchlist
+                </Link>
+                <Link to="/account" className="nav-link">
+                  <i className="me-1 bi bi-person-circle"></i>
+                  My Account
+                </Link>
+                <Link to="/about" className="nav-link">
+                  <i className="me-1 bi bi-info-circle"></i>
+                  About
+                </Link>
+                <Link to="!#" className="nav-link" onClick={props.logout}>
+                  <i className="me-1 bi bi-box-arrow-right"></i>
+                  Logout
+                </Link>
               </React.Fragment>
             )}
           </Nav>

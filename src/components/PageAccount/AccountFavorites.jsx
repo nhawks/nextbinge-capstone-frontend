@@ -53,6 +53,7 @@ function AccountFavorites(props) {
       >
         {props.watchedShows
           .filter((show) => show.is_favorite)
+          // eslint-disable-next-line array-callback-return
           .filter((show) => {
             if (searchTerm === "") {
               return show;
@@ -65,7 +66,7 @@ function AccountFavorites(props) {
             }
           })
           .map((show) => (
-            <div className="col">
+            <div className="col" key={show.tv_show_id}>
               <Card
                 style={{ width: "180px" }}
                 className="me-2"
@@ -78,7 +79,6 @@ function AccountFavorites(props) {
                   <Card.Img
                     variant="top"
                     src={`${imageURL}${show.tv_show_data.poster_path}`}
-                    rounded
                   />
                 </Link>
                 <Card.Body>

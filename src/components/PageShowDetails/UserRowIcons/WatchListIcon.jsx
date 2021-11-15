@@ -61,7 +61,7 @@ const WatchListIcon = (props) => {
         color={props.inWatchlist ? "primary" : "dark"}
         onClick={handleClick}
       >
-        <i class="fas fa-bookmark fa-lg"></i>
+        <i className="fas fa-bookmark fa-lg"></i>
       </MDBBtn>
     </MDBTooltip>
   );

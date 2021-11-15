@@ -16,6 +16,7 @@ const AccountDetails = ({ user }) => {
         <div className="d-grid gap-4 d-md-block" align="center">
           {user.streaming_providers.map((service) => (
             <MDBBtn
+              key={service}
               type="button"
               color="primary"
               name={service}

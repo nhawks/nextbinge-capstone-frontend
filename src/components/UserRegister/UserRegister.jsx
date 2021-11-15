@@ -129,6 +129,7 @@ function UserRegister(props) {
           <div className="d-grid gap-4 d-md-block" align="center">
             {services.map((service) => (
               <MDBBtn
+                key={service.value}
                 type="button"
                 color={has[service.value] ? "primary" : "muted"}
                 value="Netflix"

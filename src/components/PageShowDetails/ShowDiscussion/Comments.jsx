@@ -1,5 +1,4 @@
 import React from "react";
-import { ListGroup, ListGroupItem } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import CommentVote from "./CommentVote";
 import Replies from "./Replies";

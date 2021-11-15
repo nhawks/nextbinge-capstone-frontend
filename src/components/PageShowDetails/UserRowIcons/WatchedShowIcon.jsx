@@ -41,7 +41,9 @@ const WatchedShowIcon = (props) => {
         onClick={handleClick}
       >
         <i
-          class={`fas fa-lg ${props.watchedShow ? "fa-eye" : "fa-eye-slash"}`}
+          className={`fas fa-lg ${
+            props.watchedShow ? "fa-eye" : "fa-eye-slash"
+          }`}
         ></i>
       </MDBBtn>
     </MDBTooltip>

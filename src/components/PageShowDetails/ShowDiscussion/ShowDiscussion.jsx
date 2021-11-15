@@ -11,6 +11,7 @@ function ShowDiscussion(props) {
 
   useEffect(() => {
     getDiscussion();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getDiscussion = async () => {

@@ -60,7 +60,6 @@ const ShowDetails = (props) => {
         setLoading(false);
       };
 
-      console.log("🚀 ~ file: ShowDetails.jsx ~ line 24 ~ useEffect ran");
       getShow();
     } catch (err) {
       console.log(
@@ -68,6 +67,7 @@ const ShowDetails = (props) => {
         err
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.watchedShows, props.watchlist]);
 
   const userWatchedShow = props.watchedShows.find(
@@ -92,7 +92,6 @@ const ShowDetails = (props) => {
           <Card.Img
             src={`https://image.tmdb.org/t/p/w500/${show.poster_path}`}
             alt={`${show.name}`}
-            fluid
           />
         </Col>
         <Col md="8">

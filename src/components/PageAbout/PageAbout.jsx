@@ -1,4 +1,4 @@
-import { Card, Col } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import AboutCard from "./AboutCard";
 import TechCard from "./TechCard";
 

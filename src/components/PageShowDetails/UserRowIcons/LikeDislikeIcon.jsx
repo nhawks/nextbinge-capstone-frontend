@@ -41,7 +41,7 @@ const LikeDislikeIcon = (props) => {
           disabled={!props.watchedShow}
           onClick={handleClick}
         >
-          <span class="material-icons">thumb_up</span>
+          <span className="material-icons">thumb_up</span>
         </MDBBtn>
       </MDBTooltip>
       <MDBTooltip
@@ -57,7 +57,7 @@ const LikeDislikeIcon = (props) => {
           disabled={!props.watchedShow}
           onClick={handleClick}
         >
-          <span class="material-icons">thumb_down</span>
+          <span className="material-icons">thumb_down</span>
         </MDBBtn>
       </MDBTooltip>
     </>

@@ -28,6 +28,7 @@ function AccountWatchedShows(props) {
         </thead>
         <tbody>
           {props.watchedShows
+            // eslint-disable-next-line array-callback-return
             .filter((show) => {
               if (searchTerm === "") {
                 return show;
@@ -53,7 +54,7 @@ function AccountWatchedShows(props) {
                       type="button"
                       className="btn btn-primary btn-floating me-1"
                     >
-                      <i class="bi bi-info-lg fa-lg"></i>
+                      <i className="bi bi-info-lg fa-lg"></i>
                     </button>
                   </Link>
                 </td>

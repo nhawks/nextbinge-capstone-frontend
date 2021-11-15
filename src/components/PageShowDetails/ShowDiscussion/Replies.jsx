@@ -1,7 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
-import CommentForm from "./CommentForm";
 import ReplyForm from "./ReplyForm";
 
 const Replies = (props) => {

@@ -35,12 +35,8 @@ function PageWatchlist(props) {
         <hr />
         <Row xs={2} md={4} lg={5} className="g-4">
           {props.watchlist.map((show) => (
-            <div className="text-center">
-              <Card
-                style={{ width: "180px" }}
-                className="me-4"
-                key={show.tv_show_id}
-              >
+            <div className="text-center" key={show.tv_show_id}>
+              <Card style={{ width: "180px" }} className="me-4">
                 <Link
                   to="/show-details"
                   onClick={() => props.setShowID(show.tv_show_id)}

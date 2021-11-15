@@ -11,17 +11,17 @@ const ShowSeasons = ({ show }) => {
     <Accordion>
       <Accordion.Item eventKey="0">
         <Accordion.Header>
-          <h7 className="text-white">
+          <p className="text-white">
             Seasons: {show.number_of_seasons} | Episodes:{" "}
             {show.number_of_episodes}
-          </h7>
+          </p>
         </Accordion.Header>
         <Accordion.Body>
           <ListGroup>
             {seasons
               .filter((season) => season.season_number !== 0)
               .map((season) => (
-                <ListGroupItem className="mt-2">
+                <ListGroupItem className="mt-2" key={season.season_number}>
                   <Row className="g-0">
                     <Col md="3" className="me-4">
                       <Image

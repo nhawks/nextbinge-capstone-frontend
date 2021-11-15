@@ -16,7 +16,7 @@ const PlayTrailerIcon = (props) => {
         onClick={() => setShowModal(true)}
         disabled={!hasTrailer}
       >
-        <i class="fas fa-play me-1"></i> Play Trailer
+        <i className="fas fa-play me-1"></i> Play Trailer
       </MDBBtn>
       {hasTrailer && (
         <Modal

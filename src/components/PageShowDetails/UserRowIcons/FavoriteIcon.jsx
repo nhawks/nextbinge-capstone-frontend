@@ -69,7 +69,7 @@ const FavoriteIcon = (props) => {
         color={props.isFavorite ? "primary" : "dark"}
         onClick={handleClick}
       >
-        <i class="fas fa-heart fa-lg"></i>
+        <i className="fas fa-heart fa-lg"></i>
       </MDBBtn>
     </MDBTooltip>
   );

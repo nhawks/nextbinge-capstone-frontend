@@ -1,6 +1,5 @@
 import React from "react";
-import { Col, Row, Tabs, Tab, Card } from "react-bootstrap";
-import { MDBCard } from "mdb-react-ui-kit";
+import { Col, Tabs, Tab, Card } from "react-bootstrap";
 import AccountDetails from "./AccountDetails";
 import AccountFavorites from "./AccountFavorites";
 import AccountWatchedShows from "./AccountWatchedShows";

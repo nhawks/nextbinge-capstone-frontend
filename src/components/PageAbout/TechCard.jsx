@@ -8,9 +8,9 @@ function TechCard() {
       <Card.Body>Front End & Styling</Card.Body>
       <Card.Text>
         <i className="devicon-javascript-plain colored fa-3x me-2"></i>
-        <i class="devicon-react-original-wordmark colored fa-3x me-2"></i>
-        <i class="devicon-bootstrap-plain-wordmark fa-3x me-2"></i>
-        <i class="fab fa-mdb fa-3x me-2"></i>
+        <i className="devicon-react-original-wordmark colored fa-3x me-2"></i>
+        <i className="devicon-bootstrap-plain-wordmark fa-3x me-2"></i>
+        <i className="fab fa-mdb fa-3x me-2"></i>
         <i className="fab fa-3x">
           <img
             src="https://avatars.githubusercontent.com/u/6853419?s=200&v=4"
@@ -23,9 +23,9 @@ function TechCard() {
       <hr />
       <Card.Body>Back End & Database</Card.Body>
       <Card.Text>
-        <i class="devicon-python-plain colored fa-3x me-2"></i>
-        <i class="devicon-django-plain fa-3x me-2"></i>
-        <i class="devicon-mysql-plain fa-3x"></i>
+        <i className="devicon-python-plain colored fa-3x me-2"></i>
+        <i className="devicon-django-plain fa-3x me-2"></i>
+        <i className="devicon-mysql-plain fa-3x"></i>
       </Card.Text>
       <hr />
       <Card.Body>APIs & Technologies</Card.Body>
