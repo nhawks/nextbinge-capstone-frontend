@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Row, Tabs, Tab, Card } from 'react-bootstrap';
 import { MDBCard } from 'mdb-react-ui-kit';
 import AccountDetails from './AccountDetails';
+import AccountFavorites from './AccountFavorites';
 
 const PageAccount = (props) => {
     return (
@@ -15,7 +16,7 @@ const PageAccount = (props) => {
                     {/* <Card.Header> */}
                 <Tabs defaultActiveKey="favorites" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="favorites" title="Favorites">
-                        {/* <AccountFavorites {...props} /> */}
+                        <AccountFavorites {...props} />
                     </Tab>
                     <Tab eventKey="archive" title="Archive">
                         {/* <AccountArchive {...props} /> */}
