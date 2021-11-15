@@ -66,11 +66,10 @@ function SeriesRow({ title, requestURL, setShowID }) {
       <hr />
       <Slider {...settings}>
         {series.map((show) => (
-          <div>
+          <div key={show.id}>
             <Link to="/show-details" onClick={() => setShowID(show.id)}>
               <Image
                 className="hover-shadow mask-overlay"
-                key={show.id}
                 src={`${imageURL}${show.poster_path}`}
                 alt={show.name}
                 fluid
