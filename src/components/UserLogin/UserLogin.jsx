@@ -24,7 +24,7 @@ function UserLogin(props) {
 
     return (
         <React.Fragment>
-            <Form className="my-auto" onSubmit={loginUser}>
+            <Form className="my-auto text-start" onSubmit={loginUser}>
                 <hr />
                 <Row className="mb-3 justify-content-center">
                     <Form.Group as={Col} md="8" controlId="loginFormUsername">
@@ -51,7 +51,7 @@ function UserLogin(props) {
                     </Form.Group>
                 </Row>
                 <div className="d-grid col-8 mb-2 mx-auto">
-                    <MDBBtn color="primary" type="submit">
+                    <MDBBtn color="primary" type="submit" rounded>
                         Login
                     </MDBBtn>
                 </div>

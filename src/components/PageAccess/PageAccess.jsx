@@ -3,8 +3,7 @@ import UserAccess from '../UserAccess/UserAccess'
 
 const PageAccess = (props) => {
     return (
-        <div>
-            Access - Login/Sign Up
+        <div className="mt-4" align="center">
             <UserAccess {...props} />
         </div>
     )

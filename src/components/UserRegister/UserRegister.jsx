@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap'
 import { MDBBtn } from 'mdb-react-ui-kit';
 
-
 function UserRegister(props) {
     const [registerValues, setRegisterValues] = useState({
         username: "",
@@ -14,12 +13,29 @@ function UserRegister(props) {
         streaming_providers: []
     });
 
+    const [has, setHas] = useState({
+        netflix: false,
+        prime: false,
+        disney: false,
+        hulu: false,
+        hbo: false
+    });
+
     const handleChange = (event) => {
         setRegisterValues(prevState => ({
             ...prevState,
             [event.target.name]: event.target.value
         }));
     }
+
+    const services = [
+        {displayName: "Netflix", value: "netflix"},
+        {displayName: "Prime Video", value: "prime"},
+        {displayName: "Disney+", value: "disney"},
+        {displayName: "Hulu", value: "hulu"},
+        {displayName: "HBOMax", value: "hbo"},
+    ]
+    
 
     const handleStream = (e) => {
         const serviceProvider = e.target.value
@@ -35,6 +51,10 @@ function UserRegister(props) {
             ...prevState,
             streaming_providers: streamingProviders
         }));
+        setHas(prevState => ({
+            ...prevState,
+            [e.target.name]: !has[e.target.name]
+        }));
     }
 
     const registerUser = (e) => {
@@ -45,7 +65,7 @@ function UserRegister(props) {
 
     return (
         <React.Fragment>
-            <Form className="my-auto" onSubmit={registerUser}>
+            <Form className="my-auto text-start" onSubmit={registerUser}>
                 <hr />
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="registerFormFirstName">
@@ -105,58 +125,25 @@ function UserRegister(props) {
                 </Row>
                 <Row>
                     <br />
-                    <p className="text-left text-center text-muted">Select your streaming providers</p>
-                <div className="d-grid gap-4 d-md-block">
-                    <MDBBtn
-                        type="button"
-                        toggle 
-                        style={{ backgroundColor: '#E50914' }} 
-                        value="Netflix" 
-                        onClick={handleStream}
-                    >
-                        Netflix
-                    </MDBBtn>
-                    <MDBBtn 
-                        type="button"
-                        toggle 
-                        style={{ backgroundColor: '#00A8E1' }} 
-                        value="Prime Video" 
-                        onClick={handleStream}
-                    >
-                        Prime Video
-                    </MDBBtn>
-                    <MDBBtn 
-                        type="button"
-                        toggle 
-                        style={{ backgroundColor: '#5822b4' }} 
-                        value="Disney+" 
-                        onClick={handleStream}
-                    >
-                        Disney+
-                    </MDBBtn>
-                    <MDBBtn 
-                        type="button"
-                        toggle 
-                        style={{ backgroundColor: '#1ce783' }} 
-                        value="Hulu" 
-                        onClick={handleStream}
-                    >
-                        Hulu
-                    </MDBBtn>
-                    <MDBBtn 
-                        type="button"
-                        toggle
-                        style={{ backgroundColor: '#991eeb' }} 
-                        value="HBO Max" 
-                        onClick={handleStream}
-                    >
-                        HBO Max
-                    </MDBBtn>
+                    <p className="text-center text-muted">Select your streaming providers</p>
+                <div className="d-grid gap-4 d-md-block" align="center">
+                    {services.map((service) => (
+                        <MDBBtn
+                            type="button"
+                            color={has[service.value] ? "primary" : "muted"}
+                            value="Netflix"
+                            name={service.value} 
+                            onClick={handleStream}
+                            className={`me-1 ${has[service.value] ? "text-white" : "text-muted"}`}
+                        >
+                            {service.displayName}
+                        </MDBBtn>
+                    ))}
                 </div>
                 </Row>
                 <br />
                 <div className="d-grid col-8 mt-2 mb-2 mx-auto">
-                <MDBBtn className="btn" color="primary" type="submit">
+                <MDBBtn className="btn" color="primary" type="submit" rounded>
                     Sign Up
                 </MDBBtn>
                 </div>
