@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MDBBtn } from "mdb-react-ui-kit";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import "./UserRowIcons.css";
 
 const PlayTrailerIcon = (props) => {

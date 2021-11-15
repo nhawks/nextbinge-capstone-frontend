@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Redirect, Switch, Route } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
-import { RAPID_API_KEY, TMDB_API_KEY } from "./keys";
+import { RAPID_API_KEY } from "./keys";
 
 // Components
 import NavBar from "./components/NavBar/NavBar";

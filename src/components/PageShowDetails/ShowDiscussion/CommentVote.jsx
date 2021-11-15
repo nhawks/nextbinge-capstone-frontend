@@ -5,7 +5,6 @@ import { MDBBadge, MDBTooltip } from "mdb-react-ui-kit";
 const CommentVote = ({ vote, commentID, commentVotes, getDiscussion }) => {
   const submitVote = async () => {
     try {
-      const jwt = localStorage.getItem("token");
       await axios.patch(
         `http://localhost:8000/api/discussions/comment/${commentID}/${vote}`
       );
