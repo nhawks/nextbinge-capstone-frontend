@@ -11,6 +11,9 @@ function AboutCard() {
                 Welcome to my solo capstone project, NextBinge! NextBinge helps users find their favorite shows in one application. With all the major networks starting their steaming service it has become complicated to keep up with what's on TV.
             </Card.Text>
             <Card.Text>
+                NextBinge is a full-stack application. I used Python's Django ORM to create a REST API to handle comments, replies, and watchlist/watched data in MySQL. On the front end, I used The Movie Database API to retrieve all the information for the TV shows.
+            </Card.Text>
+            <Card.Text>
                 Create a Watchlist.
                 <br />
                 Discuss the show with other users.
