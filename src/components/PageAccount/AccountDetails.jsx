@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Card, Col } from 'react-bootstrap';
-
+import { MDBBtn } from 'mdb-react-ui-kit';
 
 const AccountDetails = ({ user }) => {
 
@@ -11,6 +11,23 @@ const AccountDetails = ({ user }) => {
                 <Card.Body>{user.first_name} {user.last_name}</Card.Body>
                 <Card.Body>{user.username}</Card.Body>
                 <Card.Body>{user.email}</Card.Body>
+                <hr />
+                Your Streaming Providers
+                <Card.Body className="mb-2">
+                    <div className="d-grid gap-4 d-md-block" align="center">
+                        {user.streaming_providers.map((service) => (
+                            <MDBBtn
+                                type="button"
+                                color="primary"
+                                name={service} 
+                                className="me-2"
+                                rounded
+                            >
+                                {service}
+                            </MDBBtn>
+                        ))}
+                    </div>
+                </Card.Body>
             </Card>
     )
 }
