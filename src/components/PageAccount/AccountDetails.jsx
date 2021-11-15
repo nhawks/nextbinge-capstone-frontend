@@ -7,11 +7,10 @@ const AccountDetails = ({ user }) => {
     return (
         <Card>
             <Card.Header>Personal Info</Card.Header>
-            <Card.Body>{user.first_name} {user.last_name}</Card.Body>
-            <Card.Body>{user.username}</Card.Body>
+            <Card.Body>{user.first_name} {user.last_name} | {user.username}</Card.Body>
             <Card.Body>{user.email}</Card.Body>
             <hr />
-            Your Streaming Providers
+            My Streaming Providers
             <Card.Body className="mb-2">
                 <div className="d-grid gap-4 d-md-block" align="center">
                     {user.streaming_providers.map((service) => (

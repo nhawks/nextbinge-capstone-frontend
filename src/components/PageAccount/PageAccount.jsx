@@ -5,6 +5,7 @@ import AccountDetails from './AccountDetails';
 
 const PageAccount = (props) => {
     return (
+        <div className="container-fluid">
         <div className="row justify-content-center mt-4">
             <Col xs={12} md={3} align="center" className="mb-4">
                 <AccountDetails {...props} />
@@ -23,6 +24,7 @@ const PageAccount = (props) => {
                 {/* </Card.Header> */}
                 </Card>
                 </Col>
+        </div>
         </div>
     )
 }
