@@ -24,14 +24,12 @@ function AccountFavorites(props) {
     }
 
     return (
-        <div className="mt-4 mx-auto">
-        <div className="mb-4">
-            <Row xs={2} md={4} lg={5} className="g-4">
+            <Row xs={2} md={2} lg={3} xl={4} className="g-4 justify-content-center mb-4">
                 {props.watchedShows.filter(show => show.is_favorite).map((show) => (
                     <div className="text-center">
                         <Card style={{ width: '180px' }} className="me-2" key={show.tv_show_id}>
                         <Link to="/show-details" onClick={() => props.setShowID(show.tv_show_id)} >
-                        <Card.Img variant="top" src={`${imageURL}${show.tv_show_data.poster_path}`} />
+                        <Card.Img variant="top" src={`${imageURL}${show.tv_show_data.poster_path}`} rounded />
                         </Link>
                         <Card.Body>
                             <MDBBtn rounded onClick={() => removeFromFavorites(show.id)}>
@@ -42,8 +40,6 @@ function AccountFavorites(props) {
                     </div>
                 ))}
             </Row>
-        </div>
-        </div> 
      );
 }
 
