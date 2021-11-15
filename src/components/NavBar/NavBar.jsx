@@ -27,9 +27,9 @@ const NavBar = (props) => {
                                 Login/Register
                         </Link>
                          <Link to="/about" className="nav-link">
-                             <i className="me-1 bi bi-info-circle"></i>
-                                 About
-                         </Link>
+                            <i className="me-1 bi bi-info-circle"></i>
+                                About
+                        </Link>
                      </React.Fragment>
                     }
                     {props.auth &&
