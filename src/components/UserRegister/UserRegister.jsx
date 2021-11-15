@@ -132,7 +132,7 @@ function UserRegister(props) {
                 key={service.value}
                 type="button"
                 color={has[service.value] ? "primary" : "muted"}
-                value="Netflix"
+                value={service.displayName}
                 name={service.value}
                 onClick={handleStream}
                 className={`me-1 ${
