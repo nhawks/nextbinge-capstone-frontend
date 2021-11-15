@@ -3,7 +3,7 @@ import { Col, Row, Tabs, Tab, Card } from 'react-bootstrap';
 import { MDBCard } from 'mdb-react-ui-kit';
 import AccountDetails from './AccountDetails';
 import AccountFavorites from './AccountFavorites';
-import AccountArchive from './AccountArchive';
+import AccountWatchedShows from './AccountWatchedShows';
 
 const PageAccount = (props) => {
     return (
@@ -18,8 +18,8 @@ const PageAccount = (props) => {
                     <Tab eventKey="favorites" title="Favorites">
                         <AccountFavorites {...props} />
                     </Tab>
-                    <Tab eventKey="archive" title="Archive">
-                        <AccountArchive {...props} />
+                    <Tab eventKey="watched" title="Watched">
+                        <AccountWatchedShows {...props} />
                     </Tab>
                 </Tabs>
                 </Card>

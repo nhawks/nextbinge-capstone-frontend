@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Table from 'react-bootstrap/Table'
 import { Link } from 'react-router-dom';
 
-function AccountArchive(props) {
+function AccountWatchedShows(props) {
 
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -54,4 +54,4 @@ function AccountArchive(props) {
      );
 }
 
-export default AccountArchive;
+export default AccountWatchedShows;
