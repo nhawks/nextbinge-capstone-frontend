@@ -139,30 +139,42 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Search by Genre
 ![Search by Genre](./project-images/genre-search.PNG)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Search by Title
 ![Search by Title](./project-images/title-search.PNG)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## View the TV Show's details
 ![Show Details](./project-images/show-details.PNG)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Play Trailer
 ![Play Trailer](./project-images/play-trailer.PNG)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Season Information
 ![Season Info](./project-images/season-info.PNG)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Discuss the show with others!
 ![Discussion](./project-images/discussions.PNG)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## My Watchlist
 ![Watchlist](./project-images/watchlist.PNG)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## My Favorites
 ![Favorites](./project-images/favorites.PNG)
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 ## Watched Shows Table
 ![Watched Shows](./project-images/watched.PNG)
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
 
 ## Mobile Friendly
 ![Mobile Home](./project-images/mobile-home.PNG)
@@ -171,6 +183,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ![Mobile Show Details](./project-images/mobile-details.PNG)
 ![Mobile Show Discussion](./project-images/mobile-discussion.PNG)
 ![Mobile Favorites](./project-images/mobile-favorites.PNG)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## About NextBinge
 ![About](./project-images/about.PNG)
@@ -185,10 +198,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 _For more examples, please refer to the [Project Video Demo](https://vimeo.com/648685904?embedded=true&source=video_title&owner=41163184)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- CONTACT -->
