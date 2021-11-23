@@ -141,32 +141,41 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ![Search by Genre](./project-images/genre-search.PNG)
 
 ## Search by Title
-![search_title](./project-images/title-search.png)
+![Search by Title](./project-images/title-search.PNG)
 
 ## View the TV Show's details
-![details](./project-images/show-details.png)
+![Show Details](./project-images/show-details.PNG)
 
 ## Play Trailer
-![details](./project-images/play-trailer.png)
+![Play Trailer](./project-images/play-trailer.PNG)
 
 ## Season Information
-![details](./project-images/season-info.png)
+![Season Info](./project-images/season-info.PNG)
 
 ## Discuss the show with others!
-![details](./project-images/discussions.png)
+![Discussion](./project-images/discussions.PNG)
 
 ## My Watchlist
-![details](./project-images/watchlist.png)
+![Watchlist](./project-images/watchlist.PNG)
 
 ## My Favorites
-![details](./project-images/favorites.png)
+![Favorites](./project-images/favorites.PNG)
 
 ## Watched Shows Table
-![details](./project-images/watched.png)
+![Watched Shows](./project-images/watched.PNG)
 
+## Mobile Friendly
+![Mobile Home](./project-images/mobile-home.PNG)
+![Mobile Navbar](./project-images/mobile-nav.PNG)
+![Mobile Search](./project-images/mobile-search.PNG)
+![Mobile Show Details](./project-images/mobile-details.PNG)
+![Mobile Show Discussion](./project-images/mobile-discussion.PNG)
+![Mobile Favorites](./project-images/mobile-favorites.PNG)
 
 ## About NextBinge
-![details](./project-images/about.png)
+![About](./project-images/about.PNG)
+
+
 
 
 
