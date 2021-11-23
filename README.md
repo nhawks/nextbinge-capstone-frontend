@@ -44,7 +44,6 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -139,7 +138,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Usage
 
 ## Search by Genre
-![Search by Genre](./project-images/genre-search.png)
+![Search by Genre](./project-images/genre-search.PNG)
 
 ## Search by Title
 ![search_title](./project-images/title-search.png)
