@@ -1,3 +1,96 @@
+<div id="top"></div>
+
+<br />
+
+<h3 align="center">NextBinge</h3>
+
+  <p align="center">
+    For my 10-day capstone, I built a full-stack mobile-friendly web application named NextBinge. NextBinge helps users find their favorite shows in one place and keep up with currently streaming shows.
+    <br>
+    It is increasingly complicated to keep up with what’s on TV and where shows are streaming now that networks have developed unique streaming platforms. Users can view the latest trending shows and other popular shows categorized by genre or search by filter/genre. The app also displays the TV show’s details like where the show is streaming, summary, IMDb rating, and season information. 
+    From here, you can add/remove the show to your watchlist, favorites, like, dislike, and mark the show as watched. 
+    This page also features a discussion section allowing users to comment on a show and reply, like, or dislike posted comments.
+    <br />
+    <a href="https://github.com/nhawks/nextbinge-capstone-frontend"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://www.youtube.com/watch?v=44NRQpq7yDc">Video Demo</a>
+    ·
+    <a href="https://github.com/nhawks/nextbinge-capstone-frontend/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/nhawks/nextbinge-capstone-frontend/issues">Request Feature</a>
+  </p>
+</div>
+
+
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+![NextBinge](./project-images/NextBinge.png)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Built With
+
+* [React.js](https://reactjs.org/)
+* [JavaScript](https://www.javascript.com/)
+* [Bootstrap](https://getbootstrap.com)
+* [Material Design Bootstrap](https://mdbootstrap.com/docs/b5/react/)
+* [React Bootstrap](https://react-bootstrap.github.io/)
+* [Python](https://www.python.org/)
+* [Django](https://www.djangoproject.com/)
+* [Django REST Framework](https://www.django-rest-framework.org/)
+* [MySQL](https://www.mysql.com/)
+* [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction)
+* [Movie of the Night API](https://rapidapi.com/movie-of-the-night-movie-of-the-night-default/api/streaming-availability)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+* Clone the backend repository and follow the instructions located [here](https://github.com/nhawks/nextbinge-capstone-backend). 
+
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -14,57 +107,92 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Get API keys at:
+   * [TMDB API](https://developers.themoviedb.org/3/getting-started/introduction)
+   * [Rapid API: Movie of the Night (Streaming Availability)](https://rapidapi.com/movie-of-the-night-movie-of-the-night-default/api/streaming-availability)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/nhawks/nextbinge-capstone-frontend.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. In the 'src' folder create a file `key.js` enter your API keys in `key.js` 
+   ```js
+   export const RAPID_API_KEY = 'ENTER YOUR API';
+   export const TMDB_API_KEY = 'ENTER YOUR API';
+   ```
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<!-- USAGE EXAMPLES -->
+## Usage
 
-### Advanced Configuration
+## Search by Genre
+![search_genre](./project-images/genre-search.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Search by Title
+![search_title](./project-images/title-search.png)
 
-### Deployment
+## View the TV Show's details
+![details](./project-images/show-details.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Play Trailer
+![details](./project-images/play-trailer.png)
 
-### `npm run build` fails to minify
+## Season Information
+![details](./project-images/season-info.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Discuss the show with others!
+![details](./project-images/discussions.png)
+
+## My Watchlist
+![details](./project-images/watchlist.png)
+
+## My Favorites
+![details](./project-images/favorites.png)
+
+## Watched Shows Table
+![details](./project-images/watched.png)
+
+
+## About NextBinge
+![details](./project-images/about.png)
+
+
+
+
+
+
+_For more examples, please refer to the [Project Video Demo](https://vimeo.com/648685904?embedded=true&source=video_title&owner=41163184)_
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+## Contact
+
+NiGeanya Hawkins - nmhawkins@outlook.com
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[contributors-shield]: https://img.shields.io/github/contributors/nhawks/nextbinge-capstone-frontend.svg?style=for-the-badge
+[contributors-url]: https://github.com/nhawks/nextbinge-capstone-frontend/graphs/contributors
+[linkedin-url]: https://linkedin.com/in/nmhawkins
+[product-screenshot]: (./project-images/NextBinge.png)
+
+
