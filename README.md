@@ -139,7 +139,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Usage
 
 ## Search by Genre
-![search_genre](./project-images/genre-search.png)
+![Search by Genre](./project-images/genre-search.png)
 
 ## Search by Title
 ![search_title](./project-images/title-search.png)
